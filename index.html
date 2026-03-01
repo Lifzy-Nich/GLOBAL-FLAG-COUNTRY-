@@ -2,83 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>GLOBAL FLAG · TEBAK BENDERA</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     body {
       min-height: 100vh;
-      background: #000000;
+      background: #030303;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 12px;
     }
 
-    /* KARTU UTAMA - HITAM GLOSSY DENGAN EMAS */
+    /* KARTU UTAMA - RESPONSIF */
     .game-container {
-      max-width: 1000px;
+      max-width: 1200px;
       width: 100%;
-      background: #0c0c0c;
-      background-image: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
-      border: 2px solid #d4af37;
-      border-radius: 60px;
-      box-shadow: 0 30px 50px rgba(0,0,0,0.95), 
-                  0 0 0 2px #d4af37 inset,
-                  0 0 30px rgba(212, 175, 55, 0.5);
-      padding: 35px 30px;
+      background: #0a0a0a;
+      background: linear-gradient(165deg, #0d0d0d 0%, #080808 100%);
+      border: 2px solid #b8962c;
+      border-radius: 48px;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.98), 
+                  0 0 0 2px #b8962c inset,
+                  0 0 25px rgba(184, 150, 44, 0.25);
+      padding: 25px 22px;
+      transition: all 0.3s ease;
     }
 
-    /* HEADER EMAS MEWAH */
+    /* MEDIA QUERY UNTUK HP */
+    @media (max-width: 480px) {
+      .game-container {
+        padding: 18px 15px;
+        border-radius: 36px;
+        border-width: 1.5px;
+      }
+    }
+
+    /* MEDIA QUERY UNTUK TABLET */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .game-container {
+        padding: 22px 20px;
+        border-radius: 42px;
+      }
+    }
+
+    /* HEADER EMAS ELEGAN */
     .header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: clamp(15px, 4vw, 30px);
     }
 
     .header h1 {
-      font-size: 4rem;
+      font-size: clamp(2.2rem, 10vw, 4.5rem);
       font-weight: 700;
-      letter-spacing: 8px;
+      letter-spacing: clamp(3px, 2vw, 8px);
       text-transform: uppercase;
-      background: linear-gradient(180deg, #fff3c9, #d4af37, #b8860b);
+      background: linear-gradient(180deg, #f8e3a7, #b8962c, #9e7f29);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 30px #ffd700, 0 5px 10px black;
+      text-shadow: 0 2px 10px rgba(184, 150, 44, 0.4), 0 5px 15px rgba(0,0,0,0.8);
       margin-bottom: 5px;
+      line-height: 1.2;
     }
 
     .gold-underline {
-      width: 250px;
-      height: 4px;
-      background: linear-gradient(90deg, transparent, #d4af37, #ffd700, #d4af37, transparent);
-      margin: 10px auto 5px;
+      width: min(250px, 60%);
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #b8962c, #dbb44b, #b8962c, transparent);
+      margin: 8px auto 5px;
       border-radius: 10px;
-      box-shadow: 0 0 25px gold;
+      box-shadow: 0 0 15px rgba(184, 150, 44, 0.5);
     }
 
     .sub {
-      color: #b9a25a;
+      color: #c9af67;
       font-weight: 500;
-      letter-spacing: 3px;
-      font-size: 1rem;
+      letter-spacing: clamp(1px, 1.5vw, 3px);
+      font-size: clamp(0.75rem, 3vw, 1rem);
       text-transform: uppercase;
       text-shadow: 0 2px 5px black;
+      opacity: 0.95;
     }
-    /* AREA BENDERA - ELEGAN DAN BESAR */
+    /* AREA BENDERA - RESPONSIF SEMPURNA */
 .flag-display {
-  background: #050505;
-  border-radius: 70px;
-  padding: 40px 20px;
-  margin-bottom: 25px;
-  border: 3px solid #d4af37;
-  box-shadow: inset 0 10px 20px rgba(0,0,0,0.9), 0 20px 40px black;
+  background: #070707;
+  border-radius: clamp(30px, 8vw, 70px);
+  padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 20px);
+  margin-bottom: clamp(15px, 3vw, 25px);
+  border: 2px solid #b8962c;
+  box-shadow: inset 0 8px 15px rgba(0,0,0,0.9), 0 15px 30px black;
 }
 
 .flag-img {
@@ -89,210 +109,256 @@
 
 .flag-img img {
   width: 100%;
-  max-width: 500px;
+  max-width: min(500px, 90%);
   height: auto;
   aspect-ratio: 3/2;
   object-fit: cover;
-  border-radius: 50px;
-  box-shadow: 0 25px 40px -10px black, 
-              0 0 0 5px #2c2c2c, 
-              0 0 0 8px #d4af37,
-              0 0 50px #ffd700;
-  background: #1e1e1e;
+  border-radius: clamp(25px, 6vw, 50px);
+  box-shadow: 0 20px 35px -10px black, 
+              0 0 0 4px #2c2c2c, 
+              0 0 0 6px #b8962c,
+              0 0 30px rgba(184, 150, 44, 0.4);
+  background: #1a1a1a;
   transition: all 0.3s ease;
 }
 
 .flag-img img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 30px 50px -10px black, 
-              0 0 0 5px #3a3a3a, 
-              0 0 0 8px #ffd700,
-              0 0 70px gold;
+  transform: scale(1.01);
+  box-shadow: 0 25px 40px -10px black, 
+              0 0 0 4px #3a3a3a, 
+              0 0 0 6px #dbb44b,
+              0 0 45px rgba(219, 180, 75, 0.6);
 }
 
-/* PANEL INTERAKSI - BACKGROUND GLOSSY */
+/* PANEL INTERAKSI */
 .interaction-panel {
-  background: #111111;
-  border-radius: 80px;
-  padding: 35px 35px;
-  margin: 10px 0 15px;
-  border: 2px solid #d4af37;
-  box-shadow: 0 15px 30px -5px black, 0 0 0 2px #ffd700 inset;
+  background: #0c0c0c;
+  border-radius: clamp(35px, 8vw, 80px);
+  padding: clamp(22px, 5vw, 35px) clamp(18px, 4vw, 35px);
+  margin: 8px 0 12px;
+  border: 2px solid #b8962c;
+  box-shadow: 0 12px 25px -5px black, 0 0 0 1.5px #b8962c inset;
 }
 
-/* AREA INPUT DAN TOMBOL - SUSUNAN RAPI */
+/* AREA INPUT DAN TOMBOL - FLEX WRAP RAPI */
 .guess-area {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 25px;
+  gap: clamp(10px, 2.5vw, 15px);
+  margin-bottom: clamp(18px, 4vw, 25px);
 }
 
 .guess-input {
-  flex: 3 1 300px;
-  background: #1f1f1f;
-  border: 3px solid #4a3e1f;
-  border-radius: 70px;
-  padding: 18px 30px;
-  font-size: 1.3rem;
+  flex: 3 1 min(280px, 100%);
+  background: #151515;
+  border: 2.5px solid #6b582a;
+  border-radius: 60px;
+  padding: clamp(14px, 3.5vw, 18px) clamp(20px, 5vw, 30px);
+  font-size: clamp(1rem, 4vw, 1.3rem);
   color: #ffffff;
   font-weight: 500;
   outline: none;
   transition: all 0.2s;
-  box-shadow: inset 0 5px 10px rgba(0,0,0,0.9);
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.9);
+  width: 100%;
 }
 
 .guess-input:focus {
-  border-color: #ffd700;
-  background: #0f0f0f;
-  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.4), inset 0 2px 10px black;
+  border-color: #dbb44b;
+  background: #1c1c1c;
+  box-shadow: 0 0 0 3px rgba(184, 150, 44, 0.25), inset 0 2px 8px black;
 }
 
 .guess-input::placeholder {
-  color: #8a7a4a;
+  color: #7d6a3a;
   font-style: normal;
-  letter-spacing: 1px;
-  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
 }
 
 .btn {
-  background: #1e1b0f;
+  background: #1f1b0e;
   border: none;
-  border-radius: 70px;
-  padding: 18px 40px;
-  font-size: 1.3rem;
+  border-radius: 60px;
+  padding: clamp(14px, 3.5vw, 18px) clamp(25px, 6vw, 40px);
+  font-size: clamp(1rem, 4vw, 1.3rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #ffd700;
-  border: 2px solid #d4af37;
-  box-shadow: 0 10px 0 #0f0e08, 0 15px 25px black;
+  letter-spacing: clamp(1.5px, 1vw, 3px);
+  color: #dbb44b;
+  border: 2px solid #b8962c;
+  box-shadow: 0 7px 0 #0f0d06, 0 12px 20px black;
   cursor: pointer;
   transition: 0.08s linear;
-  background: linear-gradient(145deg, #2a2415, #141107);
+  background: linear-gradient(145deg, #262012, #151107);
+  white-space: nowrap;
 }
 
 .btn:hover {
-  transform: translateY(5px);
-  box-shadow: 0 5px 0 #0f0e08, 0 15px 30px black;
+  transform: translateY(4px);
+  box-shadow: 0 3px 0 #0f0d06, 0 12px 25px black;
   background: #2f2816;
-  color: #ffe87c;
-  border-color: #ffd700;
+  color: #f0cf6c;
+  border-color: #dbb44b;
 }
 
 .btn:active {
-  transform: translateY(10px);
-  box-shadow: 0 2px 0 #0f0e08, 0 10px 20px black;
+  transform: translateY(7px);
+  box-shadow: 0 1px 0 #0f0d06, 0 10px 20px black;
 }
-        /* HINT BOX - ELEGAN */
+
+/* MEDIA QUERY KHUSUS HP UNTUK TOMBOL */
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    white-space: normal;
+  }
+  .guess-input {
+    text-align: center;
+  }
+}
+        /* HINT BOX - WARNA EMAS ELEGAN */
     .hint-box {
-      background: #0a0802;
-      border-radius: 70px;
-      padding: 20px 35px;
+      background: #0f0d07;
+      border-radius: 60px;
+      padding: clamp(15px, 3.5vw, 20px) clamp(20px, 4vw, 35px);
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 20px;
-      border: 2px solid #9b822b;
-      box-shadow: inset 0 3px 8px #000000, 0 10px 20px black;
+      gap: 15px;
+      border: 2px solid #9e872f;
+      box-shadow: inset 0 3px 6px #000000, 0 8px 18px black;
     }
 
     .hint-text {
-      color: #ffe9a7;
-      font-size: 1.4rem;
+      color: #ead7a2;
+      font-size: clamp(1rem, 3.8vw, 1.4rem);
       font-weight: 500;
-      background: #1e1a0c;
-      padding: 12px 35px;
-      border-radius: 60px;
-      border-left: 8px solid #ffd700;
-      box-shadow: inset 0 2px 8px black;
-      flex: 2 1 320px;
-      letter-spacing: 0.5px;
+      background: #1a160b;
+      padding: clamp(10px, 2.5vw, 12px) clamp(20px, 5vw, 35px);
+      border-radius: 50px;
+      border-left: 6px solid #b8962c;
+      box-shadow: inset 0 2px 6px black;
+      flex: 2 1 min(280px, 100%);
+      letter-spacing: 0.3px;
+      word-break: break-word;
     }
 
     .hint-btn {
-      background: #1a1507;
-      border: 3px solid #ffd700;
-      color: #ffd700;
-      padding: 14px 40px;
-      border-radius: 60px;
-      font-size: 1.3rem;
+      background: #181407;
+      border: 2.5px solid #b8962c;
+      color: #ead18b;
+      padding: clamp(12px, 3vw, 14px) clamp(25px, 6vw, 40px);
+      border-radius: 50px;
+      font-size: clamp(1.1rem, 4vw, 1.3rem);
       font-weight: 700;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+      box-shadow: 0 0 18px rgba(184, 150, 44, 0.3);
       transition: 0.2s;
       cursor: pointer;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(4px);
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
     }
 
     .hint-btn:hover {
-      background: #ffd700;
-      color: #000;
-      border-color: #fff2b5;
-      box-shadow: 0 0 50px gold;
+      background: #b8962c;
+      color: #0a0802;
+      border-color: #f0d070;
+      box-shadow: 0 0 35px rgba(184, 150, 44, 0.7);
     }
 
-    /* STATS - DIPINDAHKAN KE POJOK KANAN (SESUAI PERMINTAAN) */
+    /* MEDIA QUERY UNTUK HINT DI HP */
+    @media (max-width: 600px) {
+      .hint-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hint-btn {
+        width: 100%;
+        white-space: normal;
+      }
+      .hint-text {
+        text-align: center;
+      }
+    }
+
+    /* STATS DI POJOK KANAN - RESPONSIF */
     .stats-bar {
       display: flex;
       justify-content: flex-end;
-      margin: 25px 0 5px;
-      padding: 0 5px;
+      margin: 20px 0 8px;
+      padding: 0 3px;
     }
 
     .remaining-badge {
-      background: #0f0e0a;
-      border-radius: 60px;
-      padding: 15px 35px;
-      border: 2px solid #d4af37;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5), inset 0 0 10px black;
-      color: #fff0b5;
-      font-size: 1.3rem;
-      font-weight: 500;
+      background: #12100b;
+      border-radius: 50px;
+      padding: clamp(10px, 2.5vw, 15px) clamp(20px, 5vw, 35px);
+      border: 2px solid #b8962c;
+      box-shadow: 0 0 15px rgba(184, 150, 44, 0.2), inset 0 0 8px black;
+      color: #eedbaa;
+      font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 15px;
+      gap: clamp(8px, 2vw, 15px);
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .remaining-badge span {
       font-weight: 800;
-      color: #ffd700;
-      font-size: 2.2rem;
-      text-shadow: 0 0 25px gold, 0 0 40px orange;
+      color: #dbb44b;
+      font-size: clamp(1.4rem, 5vw, 2.2rem);
+      text-shadow: 0 0 15px #b8962c, 0 0 25px #9e7f29;
+      line-height: 1;
     }
 
     /* PESAN FEEDBACK */
     .message {
       text-align: center;
-      font-size: 1.3rem;
+      font-size: clamp(1rem, 3.8vw, 1.3rem);
       margin: 15px 0 5px;
-      min-height: 3rem;
+      min-height: clamp(2.5rem, 8vw, 3rem);
       font-weight: 600;
+      padding: 0 5px;
     }
 
     .success-msg {
-      color: #b9ff9b;
-      text-shadow: 0 0 10px #00aa00, 0 0 20px #00ff00;
+      color: #b8d9a0;
+      text-shadow: 0 0 8px #3a6b2d, 0 0 12px #2b7a1a;
     }
     .error-msg {
-      color: #ffb28b;
-      text-shadow: 0 0 10px #aa3300, 0 0 20px #ff5500;
+      color: #e8b89b;
+      text-shadow: 0 0 8px #a64d1a, 0 0 12px #b34f1a;
     }
 
     /* FOOTER */
     .footer {
       text-align: center;
-      color: #a58d4d;
-      margin-top: 25px;
-      font-size: 1rem;
-      border-top: 2px solid #4a3e1f;
-      padding-top: 20px;
-      letter-spacing: 2px;
+      color: #a38d4b;
+      margin-top: 20px;
+      font-size: clamp(0.7rem, 3vw, 0.95rem);
+      border-top: 1.5px solid #5c4f29;
+      padding-top: 18px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    /* Tweak tambahan untuk tablet */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .game-container {
+        max-width: 900px;
+      }
+      .flag-img img {
+        max-width: 450px;
+      }
     }
   </style>
 </head>
@@ -317,11 +383,11 @@
     </div>
 
     <div class="hint-box">
-      <div class="hint-text" id="hintDisplay">👑 HINT AKAN MUNCUL DISINI</div>
+      <div class="hint-text" id="hintDisplay">👑 TEKAN HINT</div>
       <button class="hint-btn" id="hintBtn">🔍 HINT</button>
     </div>
 
-    <!-- STATS DIKIRIM KE KANAN (sudah diperbaiki) -->
+    <!-- STATS DI POJOK KANAN -->
     <div class="stats-bar">
       <div class="remaining-badge">
         BENDERA TERSISA <span id="remainingCount">195</span>
