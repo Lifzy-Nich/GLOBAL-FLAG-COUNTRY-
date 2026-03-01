@@ -14,89 +14,82 @@
 
     body {
       min-height: 100vh;
-      background: #030303;
+      background: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 12px;
     }
 
-    /* KARTU UTAMA - HITAM GLOSSY */
+    /* KARTU UTAMA - HITAM DOFF + GLOSSY + EMAS */
     .game-container {
-      max-width: 1200px;
+      max-width: 1100px;
       width: 100%;
       background: #0a0a0a;
-      background: linear-gradient(165deg, #0d0d0d 0%, #080808 100%);
-      border: 2px solid #b8962c;
-      border-radius: 48px;
-      box-shadow: 0 25px 45px rgba(0,0,0,0.98), 
-                  0 0 0 2px #b8962c inset,
-                  0 0 25px rgba(184, 150, 44, 0.25);
-      padding: 25px 22px;
+      background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
+      border: 2px solid #c9a43b;
+      border-radius: 60px;
+      box-shadow: 0 30px 50px rgba(0,0,0,1), 
+                  0 0 0 2px #c9a43b inset,
+                  0 0 40px rgba(201, 164, 59, 0.3);
+      padding: 30px 25px;
       transition: all 0.3s ease;
     }
 
+    /* RESPONSIVE PADDING */
     @media (max-width: 480px) {
       .game-container {
-        padding: 18px 15px;
-        border-radius: 36px;
+        padding: 20px 15px;
+        border-radius: 40px;
       }
     }
 
-    @media (min-width: 481px) and (max-width: 768px) {
-      .game-container {
-        padding: 22px 20px;
-        border-radius: 42px;
-      }
-    }
-
-    /* HEADER */
+    /* HEADER EMAS GLOSSY */
     .header {
       text-align: center;
-      margin-bottom: clamp(15px, 4vw, 30px);
+      margin-bottom: 25px;
     }
 
     .header h1 {
-      font-size: clamp(2.2rem, 10vw, 4.5rem);
-      font-weight: 700;
-      letter-spacing: clamp(3px, 2vw, 8px);
+      font-size: clamp(2.5rem, 10vw, 4.8rem);
+      font-weight: 800;
+      letter-spacing: clamp(4px, 2vw, 10px);
       text-transform: uppercase;
-      background: linear-gradient(180deg, #f8e3a7, #b8962c, #9e7f29);
+      background: linear-gradient(180deg, #fae68f, #c9a43b, #a07e29);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 2px 10px rgba(184, 150, 44, 0.4), 0 5px 15px rgba(0,0,0,0.8);
+      text-shadow: 0 5px 20px rgba(201, 164, 59, 0.7), 0 8px 15px black;
       margin-bottom: 5px;
       line-height: 1.2;
     }
 
     .gold-underline {
-      width: min(250px, 60%);
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #b8962c, #dbb44b, #b8962c, transparent);
-      margin: 8px auto 5px;
+      width: min(280px, 70%);
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #c9a43b, #f5d97a, #c9a43b, transparent);
+      margin: 10px auto 5px;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(184, 150, 44, 0.5);
+      box-shadow: 0 0 25px #ffd966, 0 2px 10px black;
     }
 
     .sub {
-      color: #c9af67;
+      color: #dbbf6c;
       font-weight: 500;
-      letter-spacing: clamp(1px, 1.5vw, 3px);
-      font-size: clamp(0.75rem, 3vw, 1rem);
+      letter-spacing: 3px;
+      font-size: clamp(0.8rem, 3vw, 1.1rem);
       text-transform: uppercase;
-      text-shadow: 0 2px 5px black;
-      opacity: 0.95;
+      text-shadow: 0 3px 8px black;
     }
 
-    /* AREA BENDERA */
+    /* AREA BENDERA - HITAM GLOSSY DENGAN EMAS */
     .flag-display {
-      background: #070707;
-      border-radius: clamp(30px, 8vw, 70px);
-      padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 20px);
-      margin-bottom: clamp(15px, 3vw, 25px);
-      border: 2px solid #b8962c;
-      box-shadow: inset 0 8px 15px rgba(0,0,0,0.9), 0 15px 30px black;
+      background: #080808;
+      border-radius: 50px;
+      padding: 35px 15px;
+      margin-bottom: 25px;
+      border: 2px solid #c9a43b;
+      box-shadow: inset 0 10px 25px rgba(0,0,0,0.95), 0 20px 40px black;
     }
 
     .flag-img {
@@ -107,295 +100,274 @@
 
     .flag-img img {
       width: 100%;
-      max-width: min(500px, 90%);
+      max-width: 480px;
       height: auto;
       aspect-ratio: 3/2;
       object-fit: cover;
-      border-radius: clamp(25px, 6vw, 50px);
-      box-shadow: 0 20px 35px -10px black, 
-                  0 0 0 4px #2c2c2c, 
-                  0 0 0 6px #b8962c,
-                  0 0 30px rgba(184, 150, 44, 0.4);
+      border-radius: 40px;
+      box-shadow: 0 25px 40px -10px black, 
+                  0 0 0 5px #2a2a2a, 
+                  0 0 0 7px #c9a43b,
+                  0 0 50px rgba(201, 164, 59, 0.5);
       background: #1a1a1a;
       transition: all 0.3s ease;
     }
-    /* PANEL INTERAKSI */
+
+    .flag-img img:hover {
+      transform: scale(1.01);
+      box-shadow: 0 30px 50px -10px black, 
+                  0 0 0 5px #3a3a3a, 
+                  0 0 0 7px #f5d97a,
+                  0 0 70px rgba(245, 217, 122, 0.6);
+    }
+    /* PANEL INTERAKSI - HITAM DOFF */
 .interaction-panel {
   background: #0c0c0c;
-  border-radius: clamp(35px, 8vw, 80px);
-  padding: clamp(22px, 5vw, 35px) clamp(18px, 4vw, 35px);
-  margin: 8px 0 12px;
-  border: 2px solid #b8962c;
-  box-shadow: 0 12px 25px -5px black, 0 0 0 1.5px #b8962c inset;
+  border-radius: 50px;
+  padding: 28px 25px;
+  margin: 5px 0 10px;
+  border: 2px solid #c9a43b;
+  box-shadow: 0 15px 30px -5px black, 0 0 0 2px #c9a43b inset;
 }
 
-/* ===== AREA PILIHAN GANDA ===== */
+/* HEADER QUIZ (TANPA COUNTER) */
 .quiz-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 25px;
-  flex-wrap: wrap;
-  gap: 15px;
 }
 
 .quiz-title {
-  color: #dbb44b;
-  font-size: clamp(1rem, 3.5vw, 1.3rem);
-  font-weight: 600;
+  color: #f5d97a;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  background: #1a1509;
-  padding: 10px 25px;
-  border-radius: 50px;
-  border: 1px solid #b8962c;
+  letter-spacing: 3px;
+  background: #1a150a;
+  padding: 12px 35px;
+  border-radius: 60px;
+  border: 2px solid #c9a43b;
+  box-shadow: 0 5px 0 #0a0702, 0 10px 20px black;
+  text-shadow: 0 2px 5px black;
 }
 
+/* GRID OPSI - 2 KOLOM SAMA RATA (2 KIRI 2 KANAN) */
 .options-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(12px, 2.5vw, 18px);
+  grid-template-columns: 1fr 1fr; /* Dua kolom sama */
+  gap: 18px;
   margin: 25px 0 20px;
 }
 
-/* TOMBOL PILIHAN */
+/* TOMBOL OPSI - HITAM GLOSSY DENGAN EMAS */
 .option-btn {
-  background: #16130a;
-  border: 2.5px solid #6b582a;
-  border-radius: 60px;
-  padding: clamp(16px, 3.5vw, 22px) 15px;
-  font-size: clamp(1rem, 3.8vw, 1.3rem);
+  background: #121212;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border: 2.5px solid #a08333;
+  border-radius: 70px;
+  padding: 20px 12px;
+  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
   font-weight: 600;
-  color: #ead18b;
+  color: #f0d47e;
   text-align: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 6px 0 #0f0d06, 0 8px 18px black;
+  transition: all 0.15s ease;
+  box-shadow: 0 8px 0 #0a0702, 0 12px 25px black;
   text-transform: capitalize;
   letter-spacing: 0.5px;
-  border: 2px solid #8f782f;
-  width: 100%;
   word-break: break-word;
+  border: 2px solid #b28f2f;
 }
 
 .option-btn:hover:not(:disabled) {
-  transform: translateY(3px);
-  box-shadow: 0 3px 0 #0f0d06, 0 8px 18px black;
-  background: #221e10;
-  color: #f0cf6c;
-  border-color: #dbb44b;
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #0a0702, 0 12px 25px black;
+  background: #222222;
+  color: #f8e09c;
+  border-color: #f5d97a;
 }
 
 .option-btn:active:not(:disabled) {
-  transform: translateY(5px);
-  box-shadow: 0 1px 0 #0f0d06, 0 5px 12px black;
+  transform: translateY(6px);
+  box-shadow: 0 2px 0 #0a0702, 0 8px 20px black;
 }
 
+/* WARNA JAWABAN BENAR - HIJAU EMAS */
 .option-btn.selected-correct {
-  background: #2c5a2c;
-  border-color: #8bc34a;
+  background: #1f4d1f;
+  background: linear-gradient(145deg, #2b5e2b, #1a3f1a);
+  border-color: #dbb44b;
   color: white;
-  box-shadow: 0 0 20px #4caf50;
-  transform: scale(1.02);
+  box-shadow: 0 0 30px #6b8c3f, 0 6px 0 #0f4d0f;
+  transform: translateY(2px);
 }
 
+/* WARNA JAWABAN SALAH - MERAH DOFF */
 .option-btn.selected-wrong {
-  background: #6b2f2f;
-  border-color: #d45d5d;
-  color: #ffcdcd;
-  box-shadow: 0 0 20px #b71c1c;
-  opacity: 0.9;
+  background: #4d1f1f;
+  background: linear-gradient(145deg, #5e2b2b, #3f1a1a);
+  border-color: #b95a5a;
+  color: #ffd6d6;
+  box-shadow: 0 0 30px #8c3f3f, 0 6px 0 #4d0f0f;
+  transform: translateY(2px);
 }
 
 .option-btn:disabled {
-  opacity: 0.6;
+  opacity: 0.8;
   cursor: not-allowed;
-  transform: none;
 }
-
-/* HINT BOX (TETAP ADA) */
-.hint-box {
-  background: #0f0d07;
-  border-radius: 60px;
-  padding: clamp(15px, 3.5vw, 20px) clamp(20px, 4vw, 35px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
-  border: 2px solid #9e872f;
-  box-shadow: inset 0 3px 6px #000000, 0 8px 18px black;
-  margin-top: 20px;
-}
-
-.hint-text {
-  color: #ead7a2;
-  font-size: clamp(1rem, 3.8vw, 1.4rem);
-  font-weight: 500;
-  background: #1a160b;
-  padding: clamp(10px, 2.5vw, 12px) clamp(20px, 5vw, 35px);
-  border-radius: 50px;
-  border-left: 6px solid #b8962c;
-  box-shadow: inset 0 2px 6px black;
-  flex: 2 1 min(280px, 100%);
-  letter-spacing: 0.3px;
-  word-break: break-word;
-}
-
-.hint-btn {
-  background: #181407;
-  border: 2.5px solid #b8962c;
-  color: #ead18b;
-  padding: clamp(12px, 3vw, 14px) clamp(25px, 6vw, 40px);
-  border-radius: 50px;
-  font-size: clamp(1.1rem, 4vw, 1.3rem);
-  font-weight: 700;
-  box-shadow: 0 0 18px rgba(184, 150, 44, 0.3);
-  transition: 0.2s;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  white-space: nowrap;
-}
-
-.hint-btn:hover {
-  background: #b8962c;
-  color: #0a0802;
-  border-color: #f0d070;
-  box-shadow: 0 0 35px rgba(184, 150, 44, 0.7);
-}
-
-@media (max-width: 600px) {
-  .hint-box {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .hint-btn {
-    width: 100%;
-    white-space: normal;
-  }
-}
-        /* STATS DI POJOK KANAN */
-    .stats-bar {
+        /* HINT BOX - HITAM DOFF DENGAN AKSEN EMAS */
+    .hint-box {
+      background: #0f0f0f;
+      border-radius: 70px;
+      padding: 18px 28px;
       display: flex;
-      justify-content: flex-end;
-      margin: 25px 0 5px;
-      padding: 0 3px;
-    }
-
-    .remaining-badge {
-      background: #12100b;
-      border-radius: 50px;
-      padding: clamp(10px, 2.5vw, 15px) clamp(20px, 5vw, 35px);
-      border: 2px solid #b8962c;
-      box-shadow: 0 0 15px rgba(184, 150, 44, 0.2), inset 0 0 8px black;
-      color: #eedbaa;
-      font-size: clamp(0.9rem, 3.5vw, 1.3rem);
-      font-weight: 600;
-      display: inline-flex;
       align-items: center;
-      gap: clamp(8px, 2vw, 15px);
+      justify-content: space-between;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      gap: 15px;
+      border: 2px solid #c9a43b;
+      box-shadow: inset 0 4px 10px #000000, 0 12px 25px black;
+      margin: 20px 0 15px;
     }
 
-    .remaining-badge span {
-      font-weight: 800;
-      color: #dbb44b;
-      font-size: clamp(1.4rem, 5vw, 2.2rem);
-      text-shadow: 0 0 15px #b8962c, 0 0 25px #9e7f29;
-      line-height: 1;
+    .hint-text {
+      color: #ecdbaa;
+      font-size: clamp(1.1rem, 3.8vw, 1.5rem);
+      font-weight: 500;
+      background: #1e1e1e;
+      padding: 12px 30px;
+      border-radius: 60px;
+      border-left: 8px solid #c9a43b;
+      box-shadow: inset 0 3px 8px black;
+      flex: 2 1 300px;
+      letter-spacing: 0.5px;
+      word-break: break-word;
     }
 
-    /* PESAN FEEDBACK */
-    .message {
-      text-align: center;
-      font-size: clamp(1rem, 3.8vw, 1.3rem);
-      margin: 20px 0 10px;
-      min-height: clamp(2.5rem, 8vw, 3rem);
-      font-weight: 600;
-      padding: 0 5px;
+    .hint-btn {
+      background: #1a1a1a;
+      border: 3px solid #c9a43b;
+      color: #f5d97a;
+      padding: 14px 40px;
+      border-radius: 60px;
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      font-weight: 700;
+      box-shadow: 0 0 25px rgba(201, 164, 59, 0.6), 0 8px 0 #0f0f0f;
+      transition: 0.15s;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: linear-gradient(145deg, #252525, #121212);
     }
 
-    .success-msg {
-      color: #b8d9a0;
-      text-shadow: 0 0 8px #3a6b2d, 0 0 12px #2b7a1a;
-    }
-    .error-msg {
-      color: #e8b89b;
-      text-shadow: 0 0 8px #a64d1a, 0 0 12px #b34f1a;
-    }
-    .info-msg {
-      color: #dbb44b;
-      text-shadow: 0 0 8px #b8860b;
+    .hint-btn:hover {
+      background: #c9a43b;
+      color: #000000;
+      border-color: #fae68f;
+      box-shadow: 0 0 45px #ffd966, 0 5px 0 #0f0f0f;
+      transform: translateY(3px);
     }
 
-    /* TOMBOL NEXT (MUNCUL SETELAH JAWAB) */
+    .hint-btn:active {
+      transform: translateY(6px);
+      box-shadow: 0 0 35px #ffd966, 0 2px 0 #0f0f0f;
+    }
+
+    @media (max-width: 600px) {
+      .hint-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hint-btn {
+        width: 100%;
+      }
+    }
+
+    /* TOMBOL NEXT - EMAS MEWAH */
     .next-btn-container {
       display: flex;
       justify-content: center;
-      margin: 15px 0 0;
+      margin: 20px 0 5px;
     }
 
     .next-btn {
-      background: #1f1b0e;
-      border: 2.5px solid #b8962c;
-      color: #dbb44b;
-      padding: clamp(14px, 3.5vw, 18px) clamp(35px, 8vw, 60px);
-      border-radius: 60px;
-      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      background: #1e1b10;
+      background: linear-gradient(145deg, #2b2517, #141107);
+      border: 3px solid #c9a43b;
+      color: #f5d97a;
+      padding: 16px 50px;
+      border-radius: 70px;
+      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       cursor: pointer;
-      box-shadow: 0 7px 0 #0f0d06, 0 12px 25px black;
+      box-shadow: 0 10px 0 #0a0702, 0 15px 30px black, 0 0 30px rgba(201, 164, 59, 0.4);
       transition: 0.08s linear;
       width: fit-content;
-      min-width: 200px;
+      min-width: 250px;
     }
 
     .next-btn:hover {
-      transform: translateY(4px);
-      box-shadow: 0 3px 0 #0f0d06, 0 12px 25px black;
-      background: #2f2816;
-      color: #f0cf6c;
-      border-color: #dbb44b;
+      transform: translateY(5px);
+      box-shadow: 0 5px 0 #0a0702, 0 15px 30px black, 0 0 45px #ffd966;
+      background: #2f2a1a;
+      color: #fae68f;
+      border-color: #f5d97a;
     }
 
     .next-btn:active {
-      transform: translateY(7px);
-      box-shadow: 0 1px 0 #0f0d06, 0 8px 18px black;
+      transform: translateY(9px);
+      box-shadow: 0 1px 0 #0a0702, 0 10px 25px black;
     }
 
     .next-btn.hidden {
       display: none;
     }
 
-    /* FOOTER */
+    /* PESAN FEEDBACK */
+    .message {
+      text-align: center;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      margin: 20px 0 5px;
+      min-height: 3rem;
+      font-weight: 600;
+      padding: 0 10px;
+    }
+
+    .success-msg {
+      color: #c5e0a8;
+      text-shadow: 0 0 10px #3f9e3f, 0 0 20px #2e7d2e;
+    }
+    .error-msg {
+      color: #f0bc9c;
+      text-shadow: 0 0 10px #b1451a, 0 0 20px #942f0a;
+    }
+
+    /* FOOTER - EMAS DOFF */
     .footer {
       text-align: center;
-      color: #a38d4b;
-      margin-top: 20px;
-      font-size: clamp(0.7rem, 3vw, 0.95rem);
-      border-top: 1.5px solid #5c4f29;
-      padding-top: 18px;
-      letter-spacing: 1.5px;
+      color: #b59d4f;
+      margin-top: 25px;
+      font-size: clamp(0.8rem, 3vw, 1rem);
+      border-top: 2px solid #7d6629;
+      padding-top: 20px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      opacity: 0.9;
+      font-weight: 500;
+      text-shadow: 0 2px 5px black;
     }
 
-    /* RESPONSIVE UNTUK GRID OPSI */
-    @media (max-width: 480px) {
+    /* RESPONSIVE UNTUK OPSI DI HP TETAP 2 KOLOM */
+    @media (max-width: 500px) {
       .options-container {
-        grid-template-columns: 1fr; /* Di HP jadi 1 kolom */
-        gap: 10px;
+        gap: 12px;
       }
-    }
-
-    @media (min-width: 481px) and (max-width: 768px) {
-      .options-container {
-        grid-template-columns: repeat(2, 1fr); /* Tablet tetap 2 kolom */
+      .option-btn {
+        padding: 16px 8px;
+        font-size: 1rem;
       }
     }
   </style>
@@ -416,10 +388,10 @@
 
   <div class="interaction-panel">
     <div class="quiz-header">
-      <div class="quiz-title">🇺🇳 PILIH NEGARA</div>
+      <div class="quiz-title">🌍 PILIH NEGARA</div>
     </div>
 
-    <!-- KONTAINER 4 PILIHAN GANDA -->
+    <!-- 4 OPSI - 2 KOLOM (2 KIRI 2 KANAN) -->
     <div class="options-container" id="optionsContainer">
       <button class="option-btn" id="option0">-</button>
       <button class="option-btn" id="option1">-</button>
@@ -427,28 +399,23 @@
       <button class="option-btn" id="option3">-</button>
     </div>
 
-    <!-- HINT BOX -->
+    <!-- HINT BOX (TANPA BATAS) -->
     <div class="hint-box">
       <div class="hint-text" id="hintDisplay">👑 TEKAN HINT</div>
       <button class="hint-btn" id="hintBtn">🔍 HINT</button>
     </div>
 
-    <!-- STATS DAN NEXT BUTTON -->
-    <div class="stats-bar">
-      <div class="remaining-badge">
-        BENDERA TERSISA <span id="remainingCount">195</span>
-      </div>
-    </div>
-
+    <!-- NEXT BUTTON (MUNCUL SETELAH MENJAWAB) -->
     <div class="next-btn-container">
       <button class="next-btn hidden" id="nextBtn">⟳ BERIKUTNYA</button>
     </div>
 
+    <!-- AREA PESAN -->
     <div id="messageArea" class="message"></div>
   </div>
 
   <div class="footer">
-    <span>✦ PILIHAN GANDA ✦ TANPA BATAS HINT ✦ 195+ FLAG ✦</span>
+    <span>✦ TANPA SKOR ✦ TANPA BATAS HINT ✦ 195+ BENDERA ✦</span>
   </div>
 </div>
 <script>
@@ -557,14 +524,13 @@
   let remainingItems = [];
   let currentFlag = null;
   let options = [];
-  let answered = false; // Untuk mencegah jawaban ganda
+  let answered = false;
 
   // DOM Elements
   const flagImg = document.getElementById('flagImage');
   const hintDisplay = document.getElementById('hintDisplay');
   const hintBtn = document.getElementById('hintBtn');
   const messageArea = document.getElementById('messageArea');
-  const remainingSpan = document.getElementById('remainingCount');
   const nextBtn = document.getElementById('nextBtn');
   
   const optionBtns = [
@@ -589,35 +555,31 @@
       .filter(item => item.name !== correctName)
       .map(item => item.name);
     
-    // Acak dan ambil 3 (atau kurang jika sisa sedikit)
     const shuffled = shuffleArray([...otherCountries]);
     return shuffled.slice(0, count);
   }
 
-  // Reset state untuk pertanyaan baru
+  // Reset untuk pertanyaan baru
   function resetForNewQuestion() {
     answered = false;
     nextBtn.classList.add('hidden');
     
-    // Enable semua tombol dan reset class
     optionBtns.forEach(btn => {
       btn.disabled = false;
       btn.classList.remove('selected-correct', 'selected-wrong');
     });
   }
 
-  // Siapkan 4 pilihan (1 benar + 3 salah acak)
+  // Siapkan 4 pilihan
   function prepareOptions() {
     if (!currentFlag) return;
     
     const correctName = currentFlag.name;
     const wrongNames = getRandomOptions(correctName, 3);
     
-    // Gabungkan benar + salah, lalu acak
     options = [correctName, ...wrongNames];
     options = shuffleArray(options);
     
-    // Tampilkan ke tombol
     optionBtns.forEach((btn, index) => {
       btn.textContent = options[index] || '-';
     });
@@ -628,7 +590,6 @@
     remainingItems = countries.map(c => ({ code: c.code, name: c.name }));
     remainingItems = shuffleArray(remainingItems);
     pickNewFlag();
-    updateRemainingCounter();
     messageArea.innerHTML = '';
     resetForNewQuestion();
   }
@@ -644,6 +605,7 @@
         btn.textContent = '-';
         btn.disabled = true;
       });
+      nextBtn.classList.add('hidden');
       return;
     }
     
@@ -656,10 +618,6 @@
     
     resetForNewQuestion();
     prepareOptions();
-  }
-
-  function updateRemainingCounter() {
-    remainingSpan.innerText = remainingItems.length;
   }
 
   function removeCurrentFromRemaining() {
@@ -680,46 +638,38 @@
     }
   }
 
-  // Proses jawaban (dipanggil saat tombol opsi diklik)
+  // Proses jawaban
   function handleAnswer(selectedIndex) {
     if (answered || !currentFlag) return;
     
     const selectedAnswer = options[selectedIndex];
     const isCorrect = (selectedAnswer === currentFlag.name);
     
-    // Disable semua tombol
     optionBtns.forEach(btn => { btn.disabled = true; });
     
     if (isCorrect) {
-      // BENAR
       optionBtns[selectedIndex].classList.add('selected-correct');
       messageArea.innerHTML = '<span class="success-msg">✓ BENAR! BENDERA DIHAPUS</span>';
       
-      // Hapus dari daftar
       removeCurrentFromRemaining();
-      updateRemainingCounter();
       
       if (remainingItems.length === 0) {
-        // Game selesai
         currentFlag = null;
         flagImg.src = '';
         hintDisplay.innerText = '🏁 GAME COMPLETE 🏁';
         messageArea.innerHTML = '<span class="success-msg">🎉 SELAMAT! ANDA MENANG 🎉</span>';
-        remainingSpan.innerText = '0';
         nextBtn.classList.add('hidden');
         return;
       }
     } else {
-      // SALAH
       optionBtns[selectedIndex].classList.add('selected-wrong');
       
-      // Tandai jawaban benar (untuk pembelajaran)
       const correctIndex = options.indexOf(currentFlag.name);
       if (correctIndex !== -1) {
         optionBtns[correctIndex].classList.add('selected-correct');
       }
       
-      messageArea.innerHTML = '<span class="error-msg">✗ SALAH! KLIK "BERIKUTNYA" UNTUK COBA LAGI</span>';
+      messageArea.innerHTML = '<span class="error-msg">✗ SALAH! KLIK "BERIKUTNYA"</span>';
     }
     
     answered = true;
@@ -735,7 +685,7 @@
 
   nextBtn.addEventListener('click', () => {
     if (remainingItems.length > 0) {
-      pickNewFlag(); // Ambil bendera baru (acak)
+      pickNewFlag();
     } else {
       nextBtn.classList.add('hidden');
     }
