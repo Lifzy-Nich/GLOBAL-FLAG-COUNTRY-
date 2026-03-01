@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>GLOBAL FLAG · TEBAK BENDERA</title>
+  <title>GLOBAL FLAG · PILIHAN GANDA</title>
   <style>
     * {
       margin: 0;
@@ -21,7 +21,7 @@
       padding: 12px;
     }
 
-    /* KARTU UTAMA - RESPONSIF */
+    /* KARTU UTAMA - HITAM GLOSSY */
     .game-container {
       max-width: 1200px;
       width: 100%;
@@ -36,16 +36,13 @@
       transition: all 0.3s ease;
     }
 
-    /* MEDIA QUERY UNTUK HP */
     @media (max-width: 480px) {
       .game-container {
         padding: 18px 15px;
         border-radius: 36px;
-        border-width: 1.5px;
       }
     }
 
-    /* MEDIA QUERY UNTUK TABLET */
     @media (min-width: 481px) and (max-width: 768px) {
       .game-container {
         padding: 22px 20px;
@@ -53,7 +50,7 @@
       }
     }
 
-    /* HEADER EMAS ELEGAN */
+    /* HEADER */
     .header {
       text-align: center;
       margin-bottom: clamp(15px, 4vw, 30px);
@@ -91,46 +88,38 @@
       text-shadow: 0 2px 5px black;
       opacity: 0.95;
     }
-    /* AREA BENDERA - RESPONSIF SEMPURNA */
-.flag-display {
-  background: #070707;
-  border-radius: clamp(30px, 8vw, 70px);
-  padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 20px);
-  margin-bottom: clamp(15px, 3vw, 25px);
-  border: 2px solid #b8962c;
-  box-shadow: inset 0 8px 15px rgba(0,0,0,0.9), 0 15px 30px black;
-}
 
-.flag-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    /* AREA BENDERA */
+    .flag-display {
+      background: #070707;
+      border-radius: clamp(30px, 8vw, 70px);
+      padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 20px);
+      margin-bottom: clamp(15px, 3vw, 25px);
+      border: 2px solid #b8962c;
+      box-shadow: inset 0 8px 15px rgba(0,0,0,0.9), 0 15px 30px black;
+    }
 
-.flag-img img {
-  width: 100%;
-  max-width: min(500px, 90%);
-  height: auto;
-  aspect-ratio: 3/2;
-  object-fit: cover;
-  border-radius: clamp(25px, 6vw, 50px);
-  box-shadow: 0 20px 35px -10px black, 
-              0 0 0 4px #2c2c2c, 
-              0 0 0 6px #b8962c,
-              0 0 30px rgba(184, 150, 44, 0.4);
-  background: #1a1a1a;
-  transition: all 0.3s ease;
-}
+    .flag-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.flag-img img:hover {
-  transform: scale(1.01);
-  box-shadow: 0 25px 40px -10px black, 
-              0 0 0 4px #3a3a3a, 
-              0 0 0 6px #dbb44b,
-              0 0 45px rgba(219, 180, 75, 0.6);
-}
-
-/* PANEL INTERAKSI */
+    .flag-img img {
+      width: 100%;
+      max-width: min(500px, 90%);
+      height: auto;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      border-radius: clamp(25px, 6vw, 50px);
+      box-shadow: 0 20px 35px -10px black, 
+                  0 0 0 4px #2c2c2c, 
+                  0 0 0 6px #b8962c,
+                  0 0 30px rgba(184, 150, 44, 0.4);
+      background: #1a1a1a;
+      transition: all 0.3s ease;
+    }
+    /* PANEL INTERAKSI */
 .interaction-panel {
   background: #0c0c0c;
   border-radius: clamp(35px, 8vw, 80px);
@@ -140,158 +129,158 @@
   box-shadow: 0 12px 25px -5px black, 0 0 0 1.5px #b8962c inset;
 }
 
-/* AREA INPUT DAN TOMBOL - FLEX WRAP RAPI */
-.guess-area {
+/* ===== AREA PILIHAN GANDA ===== */
+.quiz-header {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: clamp(10px, 2.5vw, 15px);
-  margin-bottom: clamp(18px, 4vw, 25px);
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-.guess-input {
-  flex: 3 1 min(280px, 100%);
-  background: #151515;
+.quiz-title {
+  color: #dbb44b;
+  font-size: clamp(1rem, 3.5vw, 1.3rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #1a1509;
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: 1px solid #b8962c;
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(12px, 2.5vw, 18px);
+  margin: 25px 0 20px;
+}
+
+/* TOMBOL PILIHAN */
+.option-btn {
+  background: #16130a;
   border: 2.5px solid #6b582a;
   border-radius: 60px;
-  padding: clamp(14px, 3.5vw, 18px) clamp(20px, 5vw, 30px);
-  font-size: clamp(1rem, 4vw, 1.3rem);
-  color: #ffffff;
-  font-weight: 500;
-  outline: none;
-  transition: all 0.2s;
-  box-shadow: inset 0 4px 8px rgba(0,0,0,0.9);
-  width: 100%;
-}
-
-.guess-input:focus {
-  border-color: #dbb44b;
-  background: #1c1c1c;
-  box-shadow: 0 0 0 3px rgba(184, 150, 44, 0.25), inset 0 2px 8px black;
-}
-
-.guess-input::placeholder {
-  color: #7d6a3a;
-  font-style: normal;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
-}
-
-.btn {
-  background: #1f1b0e;
-  border: none;
-  border-radius: 60px;
-  padding: clamp(14px, 3.5vw, 18px) clamp(25px, 6vw, 40px);
-  font-size: clamp(1rem, 4vw, 1.3rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: clamp(1.5px, 1vw, 3px);
-  color: #dbb44b;
-  border: 2px solid #b8962c;
-  box-shadow: 0 7px 0 #0f0d06, 0 12px 20px black;
+  padding: clamp(16px, 3.5vw, 22px) 15px;
+  font-size: clamp(1rem, 3.8vw, 1.3rem);
+  font-weight: 600;
+  color: #ead18b;
+  text-align: center;
   cursor: pointer;
-  transition: 0.08s linear;
-  background: linear-gradient(145deg, #262012, #151107);
-  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 0 #0f0d06, 0 8px 18px black;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  border: 2px solid #8f782f;
+  width: 100%;
+  word-break: break-word;
 }
 
-.btn:hover {
-  transform: translateY(4px);
-  box-shadow: 0 3px 0 #0f0d06, 0 12px 25px black;
-  background: #2f2816;
+.option-btn:hover:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #0f0d06, 0 8px 18px black;
+  background: #221e10;
   color: #f0cf6c;
   border-color: #dbb44b;
 }
 
-.btn:active {
-  transform: translateY(7px);
-  box-shadow: 0 1px 0 #0f0d06, 0 10px 20px black;
+.option-btn:active:not(:disabled) {
+  transform: translateY(5px);
+  box-shadow: 0 1px 0 #0f0d06, 0 5px 12px black;
 }
 
-/* MEDIA QUERY KHUSUS HP UNTUK TOMBOL */
-@media (max-width: 480px) {
-  .btn {
+.option-btn.selected-correct {
+  background: #2c5a2c;
+  border-color: #8bc34a;
+  color: white;
+  box-shadow: 0 0 20px #4caf50;
+  transform: scale(1.02);
+}
+
+.option-btn.selected-wrong {
+  background: #6b2f2f;
+  border-color: #d45d5d;
+  color: #ffcdcd;
+  box-shadow: 0 0 20px #b71c1c;
+  opacity: 0.9;
+}
+
+.option-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* HINT BOX (TETAP ADA) */
+.hint-box {
+  background: #0f0d07;
+  border-radius: 60px;
+  padding: clamp(15px, 3.5vw, 20px) clamp(20px, 4vw, 35px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  border: 2px solid #9e872f;
+  box-shadow: inset 0 3px 6px #000000, 0 8px 18px black;
+  margin-top: 20px;
+}
+
+.hint-text {
+  color: #ead7a2;
+  font-size: clamp(1rem, 3.8vw, 1.4rem);
+  font-weight: 500;
+  background: #1a160b;
+  padding: clamp(10px, 2.5vw, 12px) clamp(20px, 5vw, 35px);
+  border-radius: 50px;
+  border-left: 6px solid #b8962c;
+  box-shadow: inset 0 2px 6px black;
+  flex: 2 1 min(280px, 100%);
+  letter-spacing: 0.3px;
+  word-break: break-word;
+}
+
+.hint-btn {
+  background: #181407;
+  border: 2.5px solid #b8962c;
+  color: #ead18b;
+  padding: clamp(12px, 3vw, 14px) clamp(25px, 6vw, 40px);
+  border-radius: 50px;
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+  font-weight: 700;
+  box-shadow: 0 0 18px rgba(184, 150, 44, 0.3);
+  transition: 0.2s;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.hint-btn:hover {
+  background: #b8962c;
+  color: #0a0802;
+  border-color: #f0d070;
+  box-shadow: 0 0 35px rgba(184, 150, 44, 0.7);
+}
+
+@media (max-width: 600px) {
+  .hint-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hint-btn {
     width: 100%;
     white-space: normal;
   }
-  .guess-input {
-    text-align: center;
-  }
 }
-        /* HINT BOX - WARNA EMAS ELEGAN */
-    .hint-box {
-      background: #0f0d07;
-      border-radius: 60px;
-      padding: clamp(15px, 3.5vw, 20px) clamp(20px, 4vw, 35px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      border: 2px solid #9e872f;
-      box-shadow: inset 0 3px 6px #000000, 0 8px 18px black;
-    }
-
-    .hint-text {
-      color: #ead7a2;
-      font-size: clamp(1rem, 3.8vw, 1.4rem);
-      font-weight: 500;
-      background: #1a160b;
-      padding: clamp(10px, 2.5vw, 12px) clamp(20px, 5vw, 35px);
-      border-radius: 50px;
-      border-left: 6px solid #b8962c;
-      box-shadow: inset 0 2px 6px black;
-      flex: 2 1 min(280px, 100%);
-      letter-spacing: 0.3px;
-      word-break: break-word;
-    }
-
-    .hint-btn {
-      background: #181407;
-      border: 2.5px solid #b8962c;
-      color: #ead18b;
-      padding: clamp(12px, 3vw, 14px) clamp(25px, 6vw, 40px);
-      border-radius: 50px;
-      font-size: clamp(1.1rem, 4vw, 1.3rem);
-      font-weight: 700;
-      box-shadow: 0 0 18px rgba(184, 150, 44, 0.3);
-      transition: 0.2s;
-      cursor: pointer;
-      backdrop-filter: blur(4px);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      white-space: nowrap;
-    }
-
-    .hint-btn:hover {
-      background: #b8962c;
-      color: #0a0802;
-      border-color: #f0d070;
-      box-shadow: 0 0 35px rgba(184, 150, 44, 0.7);
-    }
-
-    /* MEDIA QUERY UNTUK HINT DI HP */
-    @media (max-width: 600px) {
-      .hint-box {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .hint-btn {
-        width: 100%;
-        white-space: normal;
-      }
-      .hint-text {
-        text-align: center;
-      }
-    }
-
-    /* STATS DI POJOK KANAN - RESPONSIF */
+        /* STATS DI POJOK KANAN */
     .stats-bar {
       display: flex;
       justify-content: flex-end;
-      margin: 20px 0 8px;
+      margin: 25px 0 5px;
       padding: 0 3px;
     }
 
@@ -323,7 +312,7 @@
     .message {
       text-align: center;
       font-size: clamp(1rem, 3.8vw, 1.3rem);
-      margin: 15px 0 5px;
+      margin: 20px 0 10px;
       min-height: clamp(2.5rem, 8vw, 3rem);
       font-weight: 600;
       padding: 0 5px;
@@ -336,6 +325,51 @@
     .error-msg {
       color: #e8b89b;
       text-shadow: 0 0 8px #a64d1a, 0 0 12px #b34f1a;
+    }
+    .info-msg {
+      color: #dbb44b;
+      text-shadow: 0 0 8px #b8860b;
+    }
+
+    /* TOMBOL NEXT (MUNCUL SETELAH JAWAB) */
+    .next-btn-container {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0 0;
+    }
+
+    .next-btn {
+      background: #1f1b0e;
+      border: 2.5px solid #b8962c;
+      color: #dbb44b;
+      padding: clamp(14px, 3.5vw, 18px) clamp(35px, 8vw, 60px);
+      border-radius: 60px;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 7px 0 #0f0d06, 0 12px 25px black;
+      transition: 0.08s linear;
+      width: fit-content;
+      min-width: 200px;
+    }
+
+    .next-btn:hover {
+      transform: translateY(4px);
+      box-shadow: 0 3px 0 #0f0d06, 0 12px 25px black;
+      background: #2f2816;
+      color: #f0cf6c;
+      border-color: #dbb44b;
+    }
+
+    .next-btn:active {
+      transform: translateY(7px);
+      box-shadow: 0 1px 0 #0f0d06, 0 8px 18px black;
+    }
+
+    .next-btn.hidden {
+      display: none;
     }
 
     /* FOOTER */
@@ -351,13 +385,17 @@
       opacity: 0.9;
     }
 
-    /* Tweak tambahan untuk tablet */
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .game-container {
-        max-width: 900px;
+    /* RESPONSIVE UNTUK GRID OPSI */
+    @media (max-width: 480px) {
+      .options-container {
+        grid-template-columns: 1fr; /* Di HP jadi 1 kolom */
+        gap: 10px;
       }
-      .flag-img img {
-        max-width: 450px;
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      .options-container {
+        grid-template-columns: repeat(2, 1fr); /* Tablet tetap 2 kolom */
       }
     }
   </style>
@@ -367,7 +405,7 @@
   <div class="header">
     <h1>GLOBAL FLAG</h1>
     <div class="gold-underline"></div>
-    <div class="sub">195+ NEGARA · TEBAK BENDERA</div>
+    <div class="sub">195+ NEGARA · PILIHAN GANDA</div>
   </div>
 
   <div class="flag-display">
@@ -377,33 +415,44 @@
   </div>
 
   <div class="interaction-panel">
-    <div class="guess-area">
-      <input type="text" id="guessInput" class="guess-input" placeholder="Ketik nama negara..." autocomplete="off" autofocus>
-      <button class="btn" id="submitGuess">CEK</button>
+    <div class="quiz-header">
+      <div class="quiz-title">🇺🇳 PILIH NEGARA</div>
     </div>
 
+    <!-- KONTAINER 4 PILIHAN GANDA -->
+    <div class="options-container" id="optionsContainer">
+      <button class="option-btn" id="option0">-</button>
+      <button class="option-btn" id="option1">-</button>
+      <button class="option-btn" id="option2">-</button>
+      <button class="option-btn" id="option3">-</button>
+    </div>
+
+    <!-- HINT BOX -->
     <div class="hint-box">
       <div class="hint-text" id="hintDisplay">👑 TEKAN HINT</div>
       <button class="hint-btn" id="hintBtn">🔍 HINT</button>
     </div>
 
-    <!-- STATS DI POJOK KANAN -->
+    <!-- STATS DAN NEXT BUTTON -->
     <div class="stats-bar">
       <div class="remaining-badge">
         BENDERA TERSISA <span id="remainingCount">195</span>
       </div>
     </div>
 
+    <div class="next-btn-container">
+      <button class="next-btn hidden" id="nextBtn">⟳ BERIKUTNYA</button>
+    </div>
+
     <div id="messageArea" class="message"></div>
   </div>
 
   <div class="footer">
-    <span>✦ TANPA BATAS HINT ✦ TANPA SKOR ✦ 195+ FLAG ✦</span>
+    <span>✦ PILIHAN GANDA ✦ TANPA BATAS HINT ✦ 195+ FLAG ✦</span>
   </div>
 </div>
 <script>
 (function() {
-  // FLAG CDN
   const FLAG_BASE = 'https://flagcdn.com/w320/';
   
   const countries = [
@@ -507,15 +556,25 @@
   // STATE
   let remainingItems = [];
   let currentFlag = null;
+  let options = [];
+  let answered = false; // Untuk mencegah jawaban ganda
 
+  // DOM Elements
   const flagImg = document.getElementById('flagImage');
-  const guessInput = document.getElementById('guessInput');
-  const submitBtn = document.getElementById('submitGuess');
-  const hintBtn = document.getElementById('hintBtn');
   const hintDisplay = document.getElementById('hintDisplay');
+  const hintBtn = document.getElementById('hintBtn');
   const messageArea = document.getElementById('messageArea');
   const remainingSpan = document.getElementById('remainingCount');
+  const nextBtn = document.getElementById('nextBtn');
+  
+  const optionBtns = [
+    document.getElementById('option0'),
+    document.getElementById('option1'),
+    document.getElementById('option2'),
+    document.getElementById('option3')
+  ];
 
+  // Helper functions
   function shuffleArray(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -524,29 +583,79 @@
     return arr;
   }
 
+  // Ambil 3 pilihan acak (selain jawaban benar)
+  function getRandomOptions(correctName, count = 3) {
+    const otherCountries = remainingItems
+      .filter(item => item.name !== correctName)
+      .map(item => item.name);
+    
+    // Acak dan ambil 3 (atau kurang jika sisa sedikit)
+    const shuffled = shuffleArray([...otherCountries]);
+    return shuffled.slice(0, count);
+  }
+
+  // Reset state untuk pertanyaan baru
+  function resetForNewQuestion() {
+    answered = false;
+    nextBtn.classList.add('hidden');
+    
+    // Enable semua tombol dan reset class
+    optionBtns.forEach(btn => {
+      btn.disabled = false;
+      btn.classList.remove('selected-correct', 'selected-wrong');
+    });
+  }
+
+  // Siapkan 4 pilihan (1 benar + 3 salah acak)
+  function prepareOptions() {
+    if (!currentFlag) return;
+    
+    const correctName = currentFlag.name;
+    const wrongNames = getRandomOptions(correctName, 3);
+    
+    // Gabungkan benar + salah, lalu acak
+    options = [correctName, ...wrongNames];
+    options = shuffleArray(options);
+    
+    // Tampilkan ke tombol
+    optionBtns.forEach((btn, index) => {
+      btn.textContent = options[index] || '-';
+    });
+  }
+
+  // Inisialisasi game
   function initGame() {
     remainingItems = countries.map(c => ({ code: c.code, name: c.name }));
     remainingItems = shuffleArray(remainingItems);
     pickNewFlag();
     updateRemainingCounter();
     messageArea.innerHTML = '';
+    resetForNewQuestion();
   }
 
+  // Ambil bendera baru
   function pickNewFlag() {
     if (remainingItems.length === 0) {
       currentFlag = null;
       flagImg.src = '';
       flagImg.alt = 'Selesai!';
       hintDisplay.innerText = '✨ SELESAI! SEMUA BENDERA TERBAK ✨';
+      optionBtns.forEach(btn => {
+        btn.textContent = '-';
+        btn.disabled = true;
+      });
       return;
     }
+    
     const randomIndex = Math.floor(Math.random() * remainingItems.length);
     currentFlag = { ...remainingItems[randomIndex] };
     flagImg.src = `${FLAG_BASE}${currentFlag.code}.png`;
     flagImg.alt = `bendera ${currentFlag.name}`;
     hintDisplay.innerText = '👑 TEKAN HINT UNTUK PETUNJUK';
-    guessInput.value = '';
     messageArea.innerHTML = '';
+    
+    resetForNewQuestion();
+    prepareOptions();
   }
 
   function updateRemainingCounter() {
@@ -571,46 +680,68 @@
     }
   }
 
-  function handleGuess() {
-    if (!currentFlag) {
-      messageArea.innerHTML = '<span class="success-msg">✨ SEMUA BENDERA TERBAK ✨</span>';
-      return;
-    }
-
-    const userAnswer = guessInput.value.trim().toLowerCase();
-    if (userAnswer === '') {
-      messageArea.innerHTML = '<span class="error-msg">⚠️ MASUKKAN NAMA NEGARA</span>';
-      return;
-    }
-
-    if (userAnswer === currentFlag.name.toLowerCase()) {
+  // Proses jawaban (dipanggil saat tombol opsi diklik)
+  function handleAnswer(selectedIndex) {
+    if (answered || !currentFlag) return;
+    
+    const selectedAnswer = options[selectedIndex];
+    const isCorrect = (selectedAnswer === currentFlag.name);
+    
+    // Disable semua tombol
+    optionBtns.forEach(btn => { btn.disabled = true; });
+    
+    if (isCorrect) {
+      // BENAR
+      optionBtns[selectedIndex].classList.add('selected-correct');
       messageArea.innerHTML = '<span class="success-msg">✓ BENAR! BENDERA DIHAPUS</span>';
+      
+      // Hapus dari daftar
       removeCurrentFromRemaining();
       updateRemainingCounter();
-
-      if (remainingItems.length > 0) {
-        pickNewFlag();
-      } else {
+      
+      if (remainingItems.length === 0) {
+        // Game selesai
         currentFlag = null;
         flagImg.src = '';
         hintDisplay.innerText = '🏁 GAME COMPLETE 🏁';
         messageArea.innerHTML = '<span class="success-msg">🎉 SELAMAT! ANDA MENANG 🎉</span>';
         remainingSpan.innerText = '0';
+        nextBtn.classList.add('hidden');
+        return;
       }
     } else {
-      messageArea.innerHTML = '<span class="error-msg">✗ SALAH! COBA LAGI (DIACAK ULANG)</span>';
-      if (remainingItems.length > 0) {
-        pickNewFlag();
+      // SALAH
+      optionBtns[selectedIndex].classList.add('selected-wrong');
+      
+      // Tandai jawaban benar (untuk pembelajaran)
+      const correctIndex = options.indexOf(currentFlag.name);
+      if (correctIndex !== -1) {
+        optionBtns[correctIndex].classList.add('selected-correct');
       }
+      
+      messageArea.innerHTML = '<span class="error-msg">✗ SALAH! KLIK "BERIKUTNYA" UNTUK COBA LAGI</span>';
     }
+    
+    answered = true;
+    nextBtn.classList.remove('hidden');
   }
 
-  submitBtn.addEventListener('click', handleGuess);
-  hintBtn.addEventListener('click', showHint);
-  guessInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') submitBtn.click();
+  // Event Listeners
+  optionBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => handleAnswer(index));
   });
 
+  hintBtn.addEventListener('click', showHint);
+
+  nextBtn.addEventListener('click', () => {
+    if (remainingItems.length > 0) {
+      pickNewFlag(); // Ambil bendera baru (acak)
+    } else {
+      nextBtn.classList.add('hidden');
+    }
+  });
+
+  // Mulai game
   initGame();
 })();
 </script>
