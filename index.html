@@ -3,276 +3,296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GLOBAL FLAG · tebak bendera</title>
+  <title>GLOBAL FLAG · TEBAK BENDERA</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
     }
 
     body {
       min-height: 100vh;
-      background: #0a0a0a;
+      background: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 20px;
     }
 
+    /* KARTU UTAMA - HITAM GLOSSY DENGAN EMAS */
     .game-container {
-      max-width: 1100px;
+      max-width: 1000px;
       width: 100%;
-      background: linear-gradient(145deg, #1a1a1a 0%, #101010 100%);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: 48px;
-      box-shadow: 0 25px 45px -10px rgba(0,0,0,0.8), 0 0 0 1px rgba(212, 175, 55, 0.2) inset, 0 0 20px rgba(212, 175, 55, 0.1);
-      backdrop-filter: blur(2px);
-      padding: 30px 25px;
+      background: #0c0c0c;
+      background-image: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+      border: 2px solid #d4af37;
+      border-radius: 60px;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.95), 
+                  0 0 0 2px #d4af37 inset,
+                  0 0 30px rgba(212, 175, 55, 0.5);
+      padding: 35px 30px;
     }
 
+    /* HEADER EMAS MEWAH */
     .header {
       text-align: center;
       margin-bottom: 30px;
-      position: relative;
     }
 
     .header h1 {
-      font-size: 3.2rem;
-      font-weight: 500;
-      letter-spacing: 6px;
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 8px;
       text-transform: uppercase;
-      background: linear-gradient(135deg, #f5e7b2 0%, #d4af37 60%, #f5e7b2 100%);
+      background: linear-gradient(180deg, #fff3c9, #d4af37, #b8860b);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 4px 8px rgba(0,0,0,0.7);
-      margin-bottom: 8px;
+      text-shadow: 0 0 30px #ffd700, 0 5px 10px black;
+      margin-bottom: 5px;
     }
 
     .gold-underline {
-      width: 180px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #d4af37, #f5e7b2, #d4af37, transparent);
-      margin: 8px auto 0;
-      border-radius: 4px;
-      box-shadow: 0 0 12px #d4af37;
+      width: 250px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #d4af37, #ffd700, #d4af37, transparent);
+      margin: 10px auto 5px;
+      border-radius: 10px;
+      box-shadow: 0 0 25px gold;
     }
 
     .sub {
-      color: #888;
-      font-weight: 300;
-      letter-spacing: 2px;
-      font-size: 0.9rem;
-      margin-top: 10px;
-    }
-
-    .flag-display {
-      background: #0d0d0d;
-      border-radius: 48px;
-      padding: 40px 20px;
-      margin-bottom: 30px;
-      border: 1px solid #2a2a2a;
-      box-shadow: inset 0 8px 12px rgba(0,0,0,0.8), 0 20px 30px -12px black;
-    }
-
-    .flag-img {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .flag-img img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      aspect-ratio: 3/2;
-      object-fit: cover;
-      border-radius: 32px;
-      box-shadow: 0 20px 30px -8px black, 0 0 0 3px #2c2c2c, 0 0 0 6px #1b1b1b, 0 0 0 1px #d4af37 inset;
-      background: #1e1e1e;
-      transition: transform 0.2s ease;
-    }
-
-    .flag-img img:hover {
-      transform: scale(1.01);
-      box-shadow: 0 25px 35px -10px black, 0 0 0 3px #3a3a3a, 0 0 0 6px #d4af37, 0 0 25px #d4af37;
-    }
-
-    .interaction-panel {
-      background: rgba(10, 10, 10, 0.7);
-      border-radius: 60px;
-      padding: 28px 32px;
-      margin: 20px 0 20px;
-      backdrop-filter: blur(4px);
-      border: 1px solid #2f2f2f;
-      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.8), 0 0 0 1px #3f3f3f inset;
-    }
-    .guess-area {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 25px;
-    }
-
-    .guess-input {
-      flex: 3 1 260px;
-      background: #1b1b1b;
-      border: 2px solid #3c3c3c;
-      border-radius: 60px;
-      padding: 16px 28px;
-      font-size: 1.2rem;
-      color: #ececec;
-      font-weight: 400;
-      outline: none;
-      transition: all 0.2s;
-      box-shadow: inset 0 4px 8px rgba(0,0,0,0.7);
-    }
-
-    .guess-input:focus {
-      border-color: #d4af37;
-      background: #121212;
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), inset 0 2px 8px black;
-    }
-
-    .guess-input::placeholder {
-      color: #6b6b6b;
-      font-style: italic;
-      letter-spacing: 1px;
-    }
-
-    .btn {
-      background: #232323;
-      border: none;
-      border-radius: 60px;
-      padding: 16px 34px;
-      font-size: 1.2rem;
-      font-weight: 600;
+      color: #b9a25a;
+      font-weight: 500;
+      letter-spacing: 3px;
+      font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #e0c87c;
-      border: 1px solid #5a4a28;
-      box-shadow: 0 8px 0 #0a0a0a, 0 10px 18px black;
-      cursor: pointer;
-      transition: 0.08s linear;
-      background: linear-gradient(145deg, #2a2a2a, #181818);
+      text-shadow: 0 2px 5px black;
     }
+    /* AREA BENDERA - ELEGAN DAN BESAR */
+.flag-display {
+  background: #050505;
+  border-radius: 70px;
+  padding: 40px 20px;
+  margin-bottom: 25px;
+  border: 3px solid #d4af37;
+  box-shadow: inset 0 10px 20px rgba(0,0,0,0.9), 0 20px 40px black;
+}
 
-    .btn:hover {
-      transform: translateY(3px);
-      box-shadow: 0 4px 0 #0a0a0a, 0 10px 20px black;
-      background: #2d2d2d;
-      color: #f5db7e;
-      border-color: #d4af37;
-    }
+.flag-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .btn:active {
-      transform: translateY(7px);
-      box-shadow: 0 1px 0 #0a0a0a, 0 8px 16px black;
-    }
+.flag-img img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: 50px;
+  box-shadow: 0 25px 40px -10px black, 
+              0 0 0 5px #2c2c2c, 
+              0 0 0 8px #d4af37,
+              0 0 50px #ffd700;
+  background: #1e1e1e;
+  transition: all 0.3s ease;
+}
 
+.flag-img img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 30px 50px -10px black, 
+              0 0 0 5px #3a3a3a, 
+              0 0 0 8px #ffd700,
+              0 0 70px gold;
+}
+
+/* PANEL INTERAKSI - BACKGROUND GLOSSY */
+.interaction-panel {
+  background: #111111;
+  border-radius: 80px;
+  padding: 35px 35px;
+  margin: 10px 0 15px;
+  border: 2px solid #d4af37;
+  box-shadow: 0 15px 30px -5px black, 0 0 0 2px #ffd700 inset;
+}
+
+/* AREA INPUT DAN TOMBOL - SUSUNAN RAPI */
+.guess-area {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.guess-input {
+  flex: 3 1 300px;
+  background: #1f1f1f;
+  border: 3px solid #4a3e1f;
+  border-radius: 70px;
+  padding: 18px 30px;
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.2s;
+  box-shadow: inset 0 5px 10px rgba(0,0,0,0.9);
+}
+
+.guess-input:focus {
+  border-color: #ffd700;
+  background: #0f0f0f;
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.4), inset 0 2px 10px black;
+}
+
+.guess-input::placeholder {
+  color: #8a7a4a;
+  font-style: normal;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.btn {
+  background: #1e1b0f;
+  border: none;
+  border-radius: 70px;
+  padding: 18px 40px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #ffd700;
+  border: 2px solid #d4af37;
+  box-shadow: 0 10px 0 #0f0e08, 0 15px 25px black;
+  cursor: pointer;
+  transition: 0.08s linear;
+  background: linear-gradient(145deg, #2a2415, #141107);
+}
+
+.btn:hover {
+  transform: translateY(5px);
+  box-shadow: 0 5px 0 #0f0e08, 0 15px 30px black;
+  background: #2f2816;
+  color: #ffe87c;
+  border-color: #ffd700;
+}
+
+.btn:active {
+  transform: translateY(10px);
+  box-shadow: 0 2px 0 #0f0e08, 0 10px 20px black;
+}
+        /* HINT BOX - ELEGAN */
     .hint-box {
-      background: #0e0e0e;
-      border-radius: 48px;
-      padding: 18px 30px;
+      background: #0a0802;
+      border-radius: 70px;
+      padding: 20px 35px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 20px;
-      border: 1px solid #3f3f3f;
-      box-shadow: inset 0 2px 5px #000000;
+      border: 2px solid #9b822b;
+      box-shadow: inset 0 3px 8px #000000, 0 10px 20px black;
     }
 
     .hint-text {
-      color: #c9c9c9;
-      font-size: 1.25rem;
-      font-weight: 400;
+      color: #ffe9a7;
+      font-size: 1.4rem;
+      font-weight: 500;
+      background: #1e1a0c;
+      padding: 12px 35px;
+      border-radius: 60px;
+      border-left: 8px solid #ffd700;
+      box-shadow: inset 0 2px 8px black;
+      flex: 2 1 320px;
       letter-spacing: 0.5px;
-      background: #1c1c1c;
-      padding: 10px 25px;
-      border-radius: 40px;
-      border-left: 5px solid #d4af37;
-      box-shadow: inset 0 2px 5px black;
-      flex: 2 1 300px;
     }
 
     .hint-btn {
-      background: transparent;
-      border: 2px solid #d4af37;
-      color: #d4af37;
-      padding: 12px 32px;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+      background: #1a1507;
+      border: 3px solid #ffd700;
+      color: #ffd700;
+      padding: 14px 40px;
+      border-radius: 60px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
       transition: 0.2s;
       cursor: pointer;
-      background: rgba(20, 20, 20, 0.7);
       backdrop-filter: blur(5px);
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .hint-btn:hover {
-      background: #d4af37;
-      color: #111;
-      border-color: #f5e7b2;
-      box-shadow: 0 0 30px #d4af37;
+      background: #ffd700;
+      color: #000;
+      border-color: #fff2b5;
+      box-shadow: 0 0 50px gold;
     }
 
+    /* STATS - DIPINDAHKAN KE POJOK KANAN (SESUAI PERMINTAAN) */
     .stats-bar {
       display: flex;
       justify-content: flex-end;
-      margin-top: 25px;
-      padding: 0 15px;
+      margin: 25px 0 5px;
+      padding: 0 5px;
     }
 
     .remaining-badge {
-      background: #1e1e1e;
+      background: #0f0e0a;
       border-radius: 60px;
-      padding: 12px 32px;
-      border: 1px solid #4f4f4f;
-      box-shadow: inset 0 0 8px black;
-      color: #ecd88b;
-      font-size: 1.2rem;
-      font-weight: 400;
+      padding: 15px 35px;
+      border: 2px solid #d4af37;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5), inset 0 0 10px black;
+      color: #fff0b5;
+      font-size: 1.3rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
     }
 
     .remaining-badge span {
-      font-weight: 700;
-      color: #d4af37;
-      font-size: 1.8rem;
-      margin-left: 12px;
-      text-shadow: 0 0 15px gold;
+      font-weight: 800;
+      color: #ffd700;
+      font-size: 2.2rem;
+      text-shadow: 0 0 25px gold, 0 0 40px orange;
     }
 
+    /* PESAN FEEDBACK */
     .message {
       text-align: center;
-      font-size: 1.2rem;
-      margin: 10px 0 0;
-      min-height: 2.8rem;
-      font-weight: 400;
-      letter-spacing: 1px;
+      font-size: 1.3rem;
+      margin: 15px 0 5px;
+      min-height: 3rem;
+      font-weight: 600;
     }
 
     .success-msg {
-      color: #a5d6a5;
-      text-shadow: 0 0 5px #0f4d0f;
+      color: #b9ff9b;
+      text-shadow: 0 0 10px #00aa00, 0 0 20px #00ff00;
     }
     .error-msg {
-      color: #e0a78b;
-      text-shadow: 0 0 5px #8b3c2b;
+      color: #ffb28b;
+      text-shadow: 0 0 10px #aa3300, 0 0 20px #ff5500;
     }
 
+    /* FOOTER */
     .footer {
       text-align: center;
-      color: #5a5a5a;
-      margin-top: 18px;
-      font-size: 0.9rem;
-      border-top: 1px dashed #3f3f3f;
-      padding-top: 18px;
+      color: #a58d4d;
+      margin-top: 25px;
+      font-size: 1rem;
+      border-top: 2px solid #4a3e1f;
+      padding-top: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
   </style>
 </head>
@@ -297,13 +317,14 @@
     </div>
 
     <div class="hint-box">
-      <div class="hint-text" id="hintDisplay">👑 klik hint untuk petunjuk</div>
+      <div class="hint-text" id="hintDisplay">👑 HINT AKAN MUNCUL DISINI</div>
       <button class="hint-btn" id="hintBtn">🔍 HINT</button>
     </div>
 
+    <!-- STATS DIKIRIM KE KANAN (sudah diperbaiki) -->
     <div class="stats-bar">
       <div class="remaining-badge">
-        Bendera tersisa <span id="remainingCount">195</span>
+        BENDERA TERSISA <span id="remainingCount">195</span>
       </div>
     </div>
 
@@ -311,208 +332,113 @@
   </div>
 
   <div class="footer">
-    <span>✦ tebak & kuasai 195+ bendera ✦ tanpa batas hint ✦ tanpa skor ✦</span>
+    <span>✦ TANPA BATAS HINT ✦ TANPA SKOR ✦ 195+ FLAG ✦</span>
   </div>
 </div>
 <script>
 (function() {
-  // ========== DATABASE PINTAR: HANYA KODE NEGARA + NAMA ==========
+  // FLAG CDN
   const FLAG_BASE = 'https://flagcdn.com/w320/';
   
   const countries = [
-    { code: 'id', name: 'indonesia' },
-    { code: 'my', name: 'malaysia' },
-    { code: 'sg', name: 'singapura' },
-    { code: 'bn', name: 'brunei' },
-    { code: 'ph', name: 'filipina' },
-    { code: 'th', name: 'thailand' },
-    { code: 'mm', name: 'myanmar' },
-    { code: 'la', name: 'laos' },
-    { code: 'vn', name: 'vietnam' },
-    { code: 'kh', name: 'kamboja' },
-    { code: 'in', name: 'india' },
-    { code: 'pk', name: 'pakistan' },
-    { code: 'lk', name: 'sri lanka' },
-    { code: 'bd', name: 'bangladesh' },
-    { code: 'np', name: 'nepal' },
-    { code: 'bt', name: 'bhutan' },
-    { code: 'mv', name: 'maladewa' },
-    { code: 'cn', name: 'china' },
-    { code: 'jp', name: 'jepang' },
-    { code: 'kr', name: 'korea selatan' },
-    { code: 'kp', name: 'korea utara' },
-    { code: 'mn', name: 'mongolia' },
-    { code: 'tw', name: 'taiwan' },
-    { code: 'sa', name: 'arab saudi' },
-    { code: 'ye', name: 'yaman' },
-    { code: 'om', name: 'oman' },
-    { code: 'ae', name: 'uni emirat arab' },
-    { code: 'qa', name: 'qatar' },
-    { code: 'kw', name: 'kuwait' },
-    { code: 'iq', name: 'irak' },
-    { code: 'ir', name: 'iran' },
-    { code: 'sy', name: 'siria' },
-    { code: 'jo', name: 'yordania' },
-    { code: 'lb', name: 'lebanon' },
-    { code: 'il', name: 'israel' },
-    { code: 'cy', name: 'siprus' },
-    { code: 'eg', name: 'mesir' },
-    { code: 'ly', name: 'libya' },
-    { code: 'dz', name: 'aljazair' },
-    { code: 'ma', name: 'maroko' },
-    { code: 'tn', name: 'tunisia' },
-    { code: 'mr', name: 'mauritania' },
-    { code: 'sd', name: 'sudan' },
-    { code: 'ss', name: 'sudan selatan' },
-    { code: 'er', name: 'eritrea' },
-    { code: 'et', name: 'ethiopia' },
-    { code: 'dj', name: 'djibouti' },
-    { code: 'so', name: 'somalia' },
-    { code: 'ke', name: 'kenya' },
-    { code: 'ug', name: 'uganda' },
-    { code: 'tz', name: 'tanzania' },
-    { code: 'mz', name: 'mozambik' },
-    { code: 'mg', name: 'madagaskar' },
-    { code: 'km', name: 'komoro' },
-    { code: 'sc', name: 'seychelles' },
-    { code: 'za', name: 'afrika selatan' },
-    { code: 'na', name: 'namibia' },
-    { code: 'bw', name: 'botswana' },
-    { code: 'zw', name: 'zimbabwe' },
-    { code: 'zm', name: 'zambia' },
-    { code: 'mw', name: 'malawi' },
-    { code: 'ao', name: 'angola' },
-    { code: 'cd', name: 'republik demokratik kongo' },
-    { code: 'cg', name: 'kongo' },
-    { code: 'ga', name: 'gabon' },
-    { code: 'gq', name: 'guinea ekuator' },
-    { code: 'st', name: 'sao tome dan principe' },
-    { code: 'ng', name: 'nigeria' },
-    { code: 'ne', name: 'niger' },
-    { code: 'ml', name: 'mali' },
-    { code: 'bf', name: 'burkina faso' },
-    { code: 'mu', name: 'mauritius' },
-    { code: 'ci', name: 'pantai gading' },
-    { code: 'gh', name: 'ghana' },
-    { code: 'tg', name: 'togo' },
-    { code: 'bj', name: 'benin' },
-    { code: 'lr', name: 'liberia' },
-    { code: 'sl', name: 'sierra leone' },
-    { code: 'gn', name: 'guinea' },
-    { code: 'gw', name: 'guinea bissau' },
-    { code: 'sn', name: 'senegal' },
-    { code: 'gm', name: 'gambia' },
-    { code: 'cv', name: 'tanjung verde' },
-    { code: 'us', name: 'amerika serikat' },
-    { code: 'ca', name: 'kanada' },
-    { code: 'mx', name: 'mexico' },
-    { code: 'gt', name: 'guatemala' },
-    { code: 'bz', name: 'belize' },
-    { code: 'hn', name: 'honduras' },
-    { code: 'sv', name: 'el salvador' },
-    { code: 'ni', name: 'nikaragua' },
-    { code: 'cr', name: 'kosta rika' },
-    { code: 'pa', name: 'panama' },
-    { code: 'cu', name: 'kuba' },
-    { code: 'jm', name: 'jamaika' },
-    { code: 'ht', name: 'haiti' },
-    { code: 'do', name: 'republik dominika' },
-    { code: 'pr', name: 'puerto riko' },
-    { code: 'bs', name: 'bahama' },
-    { code: 'tt', name: 'trinidad dan tobago' },
-    { code: 'bb', name: 'barbados' },
-    { code: 'lc', name: 'saint lucia' },
-    { code: 'vc', name: 'saint vincent dan grenadines' },
-    { code: 'gd', name: 'grenada' },
-    { code: 'ag', name: 'antigua dan barbuda' },
-    { code: 'dm', name: 'dominika' },
-    { code: 'kn', name: 'saint kitts dan nevis' },
-    { code: 'co', name: 'kolombia' },
-    { code: 've', name: 'venezuela' },
-    { code: 'gy', name: 'guyana' },
-    { code: 'sr', name: 'suriname' },
-    { code: 'gf', name: 'guyana prancis' },
-    { code: 'br', name: 'brazil' },
-    { code: 'ec', name: 'ekuador' },
-    { code: 'pe', name: 'peru' },
-    { code: 'bo', name: 'bolivia' },
-    { code: 'py', name: 'paraguay' },
-    { code: 'cl', name: 'chili' },
-    { code: 'ar', name: 'argentina' },
-    { code: 'uy', name: 'uruguay' },
-    { code: 'gb', name: 'inggris' },
-    { code: 'fr', name: 'prancis' },
-    { code: 'es', name: 'spanyol' },
-    { code: 'pt', name: 'portugal' },
-    { code: 'ad', name: 'andorra' },
-    { code: 'mc', name: 'monako' },
-    { code: 'it', name: 'italia' },
-    { code: 'va', name: 'vatican' },
-    { code: 'sm', name: 'san marino' },
-    { code: 'mt', name: 'malta' },
-    { code: 'al', name: 'albania' },
-    { code: 'gr', name: 'yunani' },
-    { code: 'mk', name: 'makedonia utara' },
-    { code: 'bg', name: 'bulgaria' },
-    { code: 'rs', name: 'serbia' },
-    { code: 'me', name: 'montenegro' },
-    { code: 'ba', name: 'bosnia dan herzegovina' },
-    { code: 'hr', name: 'kroasia' },
-    { code: 'si', name: 'slovenia' },
-    { code: 'sk', name: 'slowakia' },
-    { code: 'hu', name: 'hongaria' },
-    { code: 'ro', name: 'rumania' },
-    { code: 'md', name: 'moldova' },
-    { code: 'pl', name: 'polandia' },
-    { code: 'cz', name: 'ceko' },
-    { code: 'at', name: 'austria' },
-    { code: 'ch', name: 'swiss' },
-    { code: 'li', name: 'liechtenstein' },
-    { code: 'de', name: 'jerman' },
-    { code: 'nl', name: 'belanda' },
-    { code: 'be', name: 'belgia' },
-    { code: 'lu', name: 'luksemburg' },
-    { code: 'ie', name: 'irlandia' },
-    { code: 'dk', name: 'denmark' },
-    { code: 'is', name: 'islandia' },
-    { code: 'no', name: 'norwegia' },
-    { code: 'se', name: 'swedia' },
-    { code: 'fi', name: 'finlandia' },
-    { code: 'ee', name: 'estonia' },
-    { code: 'lv', name: 'latvia' },
-    { code: 'lt', name: 'lituania' },
-    { code: 'by', name: 'belarus' },
-    { code: 'ua', name: 'ukraina' },
-    { code: 'ru', name: 'rusia' },
-    { code: 'ge', name: 'georgia' },
-    { code: 'az', name: 'azerbaijan' },
-    { code: 'am', name: 'armenia' },
-    { code: 'kz', name: 'kazakhstan' },
-    { code: 'uz', name: 'uzbekistan' },
-    { code: 'tm', name: 'turkmenistan' },
-    { code: 'kg', name: 'kirgizstan' },
-    { code: 'tj', name: 'tajikistan' },
-    { code: 'af', name: 'afghanistan' },
-    { code: 'au', name: 'australia' },
-    { code: 'nz', name: 'selandia baru' },
-    { code: 'pg', name: 'papua nugini' },
-    { code: 'fj', name: 'fiji' },
-    { code: 'sb', name: 'kepulauan solomon' },
-    { code: 'vu', name: 'vanuatu' },
-    { code: 'ws', name: 'samoa' },
-    { code: 'to', name: 'tonga' },
-    { code: 'ki', name: 'kiribati' },
-    { code: 'fm', name: 'mikronesia' },
-    { code: 'pw', name: 'palau' },
-    { code: 'nr', name: 'nauru' },
-    { code: 'tv', name: 'tuvalu' },
-    { code: 'mh', name: 'kepulauan marshall' },
-    { code: 'xk', name: 'kosovo' },
-    { code: 'eh', name: 'sahara barat' },
-    { code: 'ps', name: 'palestina' }
+    { code: 'id', name: 'indonesia' }, { code: 'my', name: 'malaysia' },
+    { code: 'sg', name: 'singapura' }, { code: 'bn', name: 'brunei' },
+    { code: 'ph', name: 'filipina' }, { code: 'th', name: 'thailand' },
+    { code: 'mm', name: 'myanmar' }, { code: 'la', name: 'laos' },
+    { code: 'vn', name: 'vietnam' }, { code: 'kh', name: 'kamboja' },
+    { code: 'in', name: 'india' }, { code: 'pk', name: 'pakistan' },
+    { code: 'lk', name: 'sri lanka' }, { code: 'bd', name: 'bangladesh' },
+    { code: 'np', name: 'nepal' }, { code: 'bt', name: 'bhutan' },
+    { code: 'mv', name: 'maladewa' }, { code: 'cn', name: 'china' },
+    { code: 'jp', name: 'jepang' }, { code: 'kr', name: 'korea selatan' },
+    { code: 'kp', name: 'korea utara' }, { code: 'mn', name: 'mongolia' },
+    { code: 'tw', name: 'taiwan' }, { code: 'sa', name: 'arab saudi' },
+    { code: 'ye', name: 'yaman' }, { code: 'om', name: 'oman' },
+    { code: 'ae', name: 'uni emirat arab' }, { code: 'qa', name: 'qatar' },
+    { code: 'kw', name: 'kuwait' }, { code: 'iq', name: 'irak' },
+    { code: 'ir', name: 'iran' }, { code: 'sy', name: 'siria' },
+    { code: 'jo', name: 'yordania' }, { code: 'lb', name: 'lebanon' },
+    { code: 'il', name: 'israel' }, { code: 'cy', name: 'siprus' },
+    { code: 'eg', name: 'mesir' }, { code: 'ly', name: 'libya' },
+    { code: 'dz', name: 'aljazair' }, { code: 'ma', name: 'maroko' },
+    { code: 'tn', name: 'tunisia' }, { code: 'mr', name: 'mauritania' },
+    { code: 'sd', name: 'sudan' }, { code: 'ss', name: 'sudan selatan' },
+    { code: 'er', name: 'eritrea' }, { code: 'et', name: 'ethiopia' },
+    { code: 'dj', name: 'djibouti' }, { code: 'so', name: 'somalia' },
+    { code: 'ke', name: 'kenya' }, { code: 'ug', name: 'uganda' },
+    { code: 'tz', name: 'tanzania' }, { code: 'mz', name: 'mozambik' },
+    { code: 'mg', name: 'madagaskar' }, { code: 'km', name: 'komoro' },
+    { code: 'sc', name: 'seychelles' }, { code: 'za', name: 'afrika selatan' },
+    { code: 'na', name: 'namibia' }, { code: 'bw', name: 'botswana' },
+    { code: 'zw', name: 'zimbabwe' }, { code: 'zm', name: 'zambia' },
+    { code: 'mw', name: 'malawi' }, { code: 'ao', name: 'angola' },
+    { code: 'cd', name: 'republik demokratik kongo' }, { code: 'cg', name: 'kongo' },
+    { code: 'ga', name: 'gabon' }, { code: 'gq', name: 'guinea ekuator' },
+    { code: 'st', name: 'sao tome dan principe' }, { code: 'ng', name: 'nigeria' },
+    { code: 'ne', name: 'niger' }, { code: 'ml', name: 'mali' },
+    { code: 'bf', name: 'burkina faso' }, { code: 'mu', name: 'mauritius' },
+    { code: 'ci', name: 'pantai gading' }, { code: 'gh', name: 'ghana' },
+    { code: 'tg', name: 'togo' }, { code: 'bj', name: 'benin' },
+    { code: 'lr', name: 'liberia' }, { code: 'sl', name: 'sierra leone' },
+    { code: 'gn', name: 'guinea' }, { code: 'gw', name: 'guinea bissau' },
+    { code: 'sn', name: 'senegal' }, { code: 'gm', name: 'gambia' },
+    { code: 'cv', name: 'tanjung verde' }, { code: 'us', name: 'amerika serikat' },
+    { code: 'ca', name: 'kanada' }, { code: 'mx', name: 'mexico' },
+    { code: 'gt', name: 'guatemala' }, { code: 'bz', name: 'belize' },
+    { code: 'hn', name: 'honduras' }, { code: 'sv', name: 'el salvador' },
+    { code: 'ni', name: 'nikaragua' }, { code: 'cr', name: 'kosta rika' },
+    { code: 'pa', name: 'panama' }, { code: 'cu', name: 'kuba' },
+    { code: 'jm', name: 'jamaika' }, { code: 'ht', name: 'haiti' },
+    { code: 'do', name: 'republik dominika' }, { code: 'pr', name: 'puerto riko' },
+    { code: 'bs', name: 'bahama' }, { code: 'tt', name: 'trinidad dan tobago' },
+    { code: 'bb', name: 'barbados' }, { code: 'lc', name: 'saint lucia' },
+    { code: 'vc', name: 'saint vincent dan grenadines' }, { code: 'gd', name: 'grenada' },
+    { code: 'ag', name: 'antigua dan barbuda' }, { code: 'dm', name: 'dominika' },
+    { code: 'kn', name: 'saint kitts dan nevis' }, { code: 'co', name: 'kolombia' },
+    { code: 've', name: 'venezuela' }, { code: 'gy', name: 'guyana' },
+    { code: 'sr', name: 'suriname' }, { code: 'gf', name: 'guyana prancis' },
+    { code: 'br', name: 'brazil' }, { code: 'ec', name: 'ekuador' },
+    { code: 'pe', name: 'peru' }, { code: 'bo', name: 'bolivia' },
+    { code: 'py', name: 'paraguay' }, { code: 'cl', name: 'chili' },
+    { code: 'ar', name: 'argentina' }, { code: 'uy', name: 'uruguay' },
+    { code: 'gb', name: 'inggris' }, { code: 'fr', name: 'prancis' },
+    { code: 'es', name: 'spanyol' }, { code: 'pt', name: 'portugal' },
+    { code: 'ad', name: 'andorra' }, { code: 'mc', name: 'monako' },
+    { code: 'it', name: 'italia' }, { code: 'va', name: 'vatican' },
+    { code: 'sm', name: 'san marino' }, { code: 'mt', name: 'malta' },
+    { code: 'al', name: 'albania' }, { code: 'gr', name: 'yunani' },
+    { code: 'mk', name: 'makedonia utara' }, { code: 'bg', name: 'bulgaria' },
+    { code: 'rs', name: 'serbia' }, { code: 'me', name: 'montenegro' },
+    { code: 'ba', name: 'bosnia dan herzegovina' }, { code: 'hr', name: 'kroasia' },
+    { code: 'si', name: 'slovenia' }, { code: 'sk', name: 'slowakia' },
+    { code: 'hu', name: 'hongaria' }, { code: 'ro', name: 'rumania' },
+    { code: 'md', name: 'moldova' }, { code: 'pl', name: 'polandia' },
+    { code: 'cz', name: 'ceko' }, { code: 'at', name: 'austria' },
+    { code: 'ch', name: 'swiss' }, { code: 'li', name: 'liechtenstein' },
+    { code: 'de', name: 'jerman' }, { code: 'nl', name: 'belanda' },
+    { code: 'be', name: 'belgia' }, { code: 'lu', name: 'luksemburg' },
+    { code: 'ie', name: 'irlandia' }, { code: 'dk', name: 'denmark' },
+    { code: 'is', name: 'islandia' }, { code: 'no', name: 'norwegia' },
+    { code: 'se', name: 'swedia' }, { code: 'fi', name: 'finlandia' },
+    { code: 'ee', name: 'estonia' }, { code: 'lv', name: 'latvia' },
+    { code: 'lt', name: 'lituania' }, { code: 'by', name: 'belarus' },
+    { code: 'ua', name: 'ukraina' }, { code: 'ru', name: 'rusia' },
+    { code: 'ge', name: 'georgia' }, { code: 'az', name: 'azerbaijan' },
+    { code: 'am', name: 'armenia' }, { code: 'kz', name: 'kazakhstan' },
+    { code: 'uz', name: 'uzbekistan' }, { code: 'tm', name: 'turkmenistan' },
+    { code: 'kg', name: 'kirgizstan' }, { code: 'tj', name: 'tajikistan' },
+    { code: 'af', name: 'afghanistan' }, { code: 'au', name: 'australia' },
+    { code: 'nz', name: 'selandia baru' }, { code: 'pg', name: 'papua nugini' },
+    { code: 'fj', name: 'fiji' }, { code: 'sb', name: 'kepulauan solomon' },
+    { code: 'vu', name: 'vanuatu' }, { code: 'ws', name: 'samoa' },
+    { code: 'to', name: 'tonga' }, { code: 'ki', name: 'kiribati' },
+    { code: 'fm', name: 'mikronesia' }, { code: 'pw', name: 'palau' },
+    { code: 'nr', name: 'nauru' }, { code: 'tv', name: 'tuvalu' },
+    { code: 'mh', name: 'kepulauan marshall' }, { code: 'xk', name: 'kosovo' },
+    { code: 'eh', name: 'sahara barat' }, { code: 'ps', name: 'palestina' }
   ];
 
-  // State management
+  // STATE
   let remainingItems = [];
   let currentFlag = null;
 
@@ -538,22 +464,21 @@
     pickNewFlag();
     updateRemainingCounter();
     messageArea.innerHTML = '';
-    messageArea.className = 'message';
   }
 
   function pickNewFlag() {
     if (remainingItems.length === 0) {
       currentFlag = null;
       flagImg.src = '';
-      flagImg.alt = 'Selesai! Semua bendera sudah ditebak.';
-      hintDisplay.innerText = '✨ SELESAI! semua bendera telah ditebak. ✨';
+      flagImg.alt = 'Selesai!';
+      hintDisplay.innerText = '✨ SELESAI! SEMUA BENDERA TERBAK ✨';
       return;
     }
     const randomIndex = Math.floor(Math.random() * remainingItems.length);
     currentFlag = { ...remainingItems[randomIndex] };
     flagImg.src = `${FLAG_BASE}${currentFlag.code}.png`;
     flagImg.alt = `bendera ${currentFlag.name}`;
-    hintDisplay.innerText = '👑 klik hint untuk petunjuk';
+    hintDisplay.innerText = '👑 TEKAN HINT UNTUK PETUNJUK';
     guessInput.value = '';
     messageArea.innerHTML = '';
   }
@@ -569,32 +494,31 @@
 
   function showHint() {
     if (!currentFlag) {
-      hintDisplay.innerText = '🎉 semua sudah ditebak, tidak ada hint';
+      hintDisplay.innerText = '🏁 GAME SELESAI';
       return;
     }
     const name = currentFlag.name;
     if (name.length <= 3) {
-      hintDisplay.innerText = `🔎 petunjuk: ${name}`;
+      hintDisplay.innerText = `🔎 HINT: ${name}`;
     } else {
-      const partial = name.substring(0, 3) + '...' + name.substring(name.length - 2);
-      hintDisplay.innerText = `🔎 petunjuk: ${partial}`;
+      hintDisplay.innerText = `🔎 HINT: ${name.substring(0, 3)}...${name.substring(name.length - 2)}`;
     }
   }
 
   function handleGuess() {
     if (!currentFlag) {
-      messageArea.innerHTML = '<span class="success-msg">✨ Anda telah menebak semua bendera! ✨</span>';
+      messageArea.innerHTML = '<span class="success-msg">✨ SEMUA BENDERA TERBAK ✨</span>';
       return;
     }
 
     const userAnswer = guessInput.value.trim().toLowerCase();
     if (userAnswer === '') {
-      messageArea.innerHTML = '<span class="error-msg">✱ ketik nama negara</span>';
+      messageArea.innerHTML = '<span class="error-msg">⚠️ MASUKKAN NAMA NEGARA</span>';
       return;
     }
 
     if (userAnswer === currentFlag.name.toLowerCase()) {
-      messageArea.innerHTML = '<span class="success-msg">✓ BENAR! bendera ini tidak akan muncul lagi.</span>';
+      messageArea.innerHTML = '<span class="success-msg">✓ BENAR! BENDERA DIHAPUS</span>';
       removeCurrentFromRemaining();
       updateRemainingCounter();
 
@@ -603,13 +527,12 @@
       } else {
         currentFlag = null;
         flagImg.src = '';
-        flagImg.alt = 'Selesai!';
         hintDisplay.innerText = '🏁 GAME COMPLETE 🏁';
-        messageArea.innerHTML = '<span class="success-msg">SELAMAT! Semua bendera telah ditebak.</span>';
+        messageArea.innerHTML = '<span class="success-msg">🎉 SELAMAT! ANDA MENANG 🎉</span>';
         remainingSpan.innerText = '0';
       }
     } else {
-      messageArea.innerHTML = '<span class="error-msg">✗ SALAH, coba lagi (pertanyaan akan diacak ulang)</span>';
+      messageArea.innerHTML = '<span class="error-msg">✗ SALAH! COBA LAGI (DIACAK ULANG)</span>';
       if (remainingItems.length > 0) {
         pickNewFlag();
       }
@@ -617,21 +540,9 @@
   }
 
   submitBtn.addEventListener('click', handleGuess);
-  hintBtn.addEventListener('click', () => {
-    if (!currentFlag && remainingItems.length === 0) {
-      hintDisplay.innerText = '🏁 permainan selesai';
-    } else if (!currentFlag && remainingItems.length > 0) {
-      pickNewFlag();
-      showHint();
-    } else {
-      showHint();
-    }
-  });
-
+  hintBtn.addEventListener('click', showHint);
   guessInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      submitBtn.click();
-    }
+    if (e.key === 'Enter') submitBtn.click();
   });
 
   initGame();
