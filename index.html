@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>SkizoTopUp • Roblox elegan</title>
   <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,13 +15,13 @@
     }
 
     body {
-      background-color: #0a0a0a; /* dasar hitam doff pekat */
+      background-color: #0a0a0a;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      padding: 2rem 1.5rem;
+      padding: 1rem; /* padding lebih kecil untuk mobile */
     }
 
     /* container utama – simetris & lebar terbatas */
@@ -33,11 +33,11 @@
     /* HEADER – glossy black + emas */
 .navbar {
   background: linear-gradient(145deg, #1f1f1f 0%, #121212 100%);
-  border-bottom: 2px solid rgba(212, 175, 55, 0.35); /* emas subtle */
-  border-radius: 2rem 2rem 1.5rem 1.5rem;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.35);
+  border-radius: 1.5rem;
   box-shadow: 0 12px 30px -10px rgba(0,0,0,0.8), 0 0 0 1px rgba(212, 175, 55, 0.15) inset;
-  padding: 0.9rem 2.2rem;
-  margin-bottom: 3rem;
+  padding: 0.9rem 1.5rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,24 +48,24 @@
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .logo-icon {
-  background: #b8860b; /* emas tua */
+  background: #b8860b;
   color: #0a0a0a;
-  width: 48px;
-  height: 48px;
-  border-radius: 18px 6px 18px 6px;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px 4px 14px 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 24px;
   box-shadow: 0 5px 0 #6d4c1d, 0 8px 15px rgba(0,0,0,0.6);
 }
 
 .logo-text h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: -0.5px;
   background: linear-gradient(130deg, #f5e7b2 20%, #d4af37 70%);
@@ -76,26 +76,31 @@
 }
 
 .logo-text span {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: #a1a1a1;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   display: block;
   line-height: 1.2;
   font-weight: 300;
 }
     .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.2rem;
+  order: 3;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .nav-links a {
   color: #ddd;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0.4rem 0;
+  font-size: 1rem;
+  padding: 0.3rem 0;
   border-bottom: 2px solid transparent;
   transition: 0.2s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -106,55 +111,58 @@
 
 /* panel akun kecil – glossy doff */
 .user-glow {
-  background: #1b1b1b; /* doff glossy look */
+  background: #1b1b1b;
   border-radius: 3rem;
-  padding: 0.4rem 1rem 0.4rem 1.2rem;
+  padding: 0.3rem 0.8rem 0.3rem 1rem;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
   border: 1px solid #3a3a3a;
   box-shadow: 0 5px 0 #0b0b0b, 0 6px 14px black;
 }
 
 .user-glow i {
   color: #d4af37;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .user-glow span {
   color: #ececec;
   font-weight: 400;
+  font-size: 0.9rem;
 }
 
 .user-glow .coin-badge {
   background: #2a2a2a;
   border-radius: 2rem;
-  padding: 0.3rem 1rem;
+  padding: 0.2rem 0.7rem;
   border-left: 2px solid #f5c542;
   font-weight: 600;
   color: #f5d97b;
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
     /* kartu statistik / info */
 .stats-grid {
   display: flex;
-  gap: 1.8rem;
+  gap: 1rem;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
 }
 
 .stat-card {
-  background: #151515; /* hitam doff */
-  border-radius: 2rem;
-  padding: 1.3rem 2.5rem;
+  background: #151515;
+  border-radius: 1.5rem;
+  padding: 1rem 1.2rem;
   box-shadow: 0 15px 25px -10px #000000cc, 0 0 0 1px #3a2e0f inset;
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 0.8rem;
   border-bottom: 3px solid #d4af37;
   transition: 0.2s;
-  flex: 1 1 180px;
-  min-width: 200px;
+  flex: 1 1 140px;
+  min-width: 140px;
   justify-content: center;
 }
 
@@ -166,19 +174,19 @@
 
 .stat-icon {
   background: #2a2a2a;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #d4af37;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   border: 1px solid #53441f;
 }
 
 .stat-number {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: white;
   line-height: 1.2;
@@ -186,12 +194,12 @@
 
 .stat-label {
   color: #b9b9b9;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  letter-spacing: 0.3px;
 }
     /* judul seksi */
 .section-title {
-  margin: 3rem 0 2rem 0;
+  margin: 2rem 0 1.5rem 0;
   position: relative;
   display: flex;
   align-items: center;
@@ -200,34 +208,34 @@
 
 .section-title h2 {
   color: #e0e0e0;
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 500;
   background: #1d1d1d;
-  padding: 0.2rem 2rem 0.2rem 1.8rem;
+  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
   border-radius: 40px;
-  border-left: 6px solid #d4af37;
+  border-left: 4px solid #d4af37;
   box-shadow: 0 5px 0 #0b0b0b;
   letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 
 .section-title .gold-line {
   height: 3px;
   flex: 1;
   background: linear-gradient(90deg, #d4af37, transparent);
-  margin-left: 20px;
+  margin-left: 15px;
 }
-
-/* GRID PRODUK – rapi, simetris */
+    /* GRID PRODUK – rapi, simetris */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem 1.8rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 .product-card {
-  background: #131313; /* doff black */
-  border-radius: 2rem 2rem 2rem 2rem;
+  background: #131313;
+  border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: 0 20px 25px -12px black, 0 0 0 1px #2f2f2f;
   transition: 0.25s ease;
@@ -241,9 +249,10 @@
   border-bottom: 3px solid #d4af37;
   box-shadow: 0 25px 30px -12px #b8860b30, 0 0 0 1px #736026;
 }
-    .card-img {
-  background: #1e1e1e; /* glossy look */
-  padding: 1.8rem 0.5rem;
+
+.card-img {
+  background: #1e1e1e;
+  padding: 1.2rem 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,27 +261,26 @@
 }
 
 .card-img i {
-  font-size: 5rem;
+  font-size: 3.5rem;
   color: #d4af37;
   filter: drop-shadow(0 8px 8px #000000);
 }
 
 .popular-tag {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 8px;
+  right: 8px;
   background: #d4af37;
   color: #121212;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  padding: 0.2rem 0.9rem;
+  padding: 0.2rem 0.7rem;
   border-radius: 20px;
   letter-spacing: 0.5px;
   border: 1px solid #ffd966;
 }
-
-.card-content {
-  padding: 1.5rem 1.2rem 1.5rem;
+    .card-content {
+  padding: 1.2rem 1rem;
   background: #0f0f0f;
   display: flex;
   flex-direction: column;
@@ -280,7 +288,7 @@
 }
 
 .robux-amount {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   background: linear-gradient(120deg, #f5e3b3, #d4af37);
   -webkit-background-clip: text;
@@ -291,27 +299,29 @@
 
 .robux-sub {
   color: #a7a7a7;
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.6rem;
   border-bottom: 1px dotted #3f3f3f;
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.4rem;
 }
 
 .price-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   margin-top: auto;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .price {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #ffffff;
 }
 
 .price small {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: #b4b4b4;
 }
 
@@ -320,13 +330,14 @@
   border: none;
   color: #d4af37;
   font-weight: 600;
-  padding: 0.4rem 1.3rem;
-  border-radius: 3rem;
-  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: 0.2s;
   border: 1px solid #5e4d25;
   box-shadow: 0 3px 0 #0a0a0a;
+  white-space: nowrap;
 }
 
 .btn-order:hover {
@@ -338,65 +349,73 @@
 }
     /* METODE PEMBAYARAN – glossy hitam + emas */
 .payment-methods {
-  background: #1a1a1a; /* glossy doff */
-  border-radius: 3rem;
-  padding: 1.8rem 2.2rem;
-  margin: 3rem 0;
+  background: #1a1a1a;
+  border-radius: 2rem;
+  padding: 1.5rem 1.2rem;
+  margin: 2rem 0;
   border: 1px solid #49431e;
   box-shadow: 0 18px 25px -16px black;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.2rem;
 }
 
 .payment-methods .label {
   color: #cfb459;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: 1px;
-  margin-right: 2rem;
+  width: 100%;
+  text-align: center;
 }
 
 .method-icons {
   display: flex;
-  gap: 2rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .method-icons span {
   background: #2b2b2b;
   color: #eee;
-  padding: 0.6rem 1.4rem;
-  border-radius: 3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
   font-weight: 500;
+  font-size: 0.85rem;
   border-left: 3px solid #d4af37;
   box-shadow: 0 5px 0 #0f0f0f;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .method-icons i {
   color: #d4af37;
-  margin-right: 8px;
 }
 
 .secure-badge {
   color: #b6a165;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-
-/* TESTIMONI / SECTION SIMETRIS */
+    /* TESTIMONI / SECTION SIMETRIS */
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 2rem 0 3rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem;
 }
 
 .testi-card {
   background: #121212;
-  padding: 1.8rem 1.5rem;
-  border-radius: 2.2rem;
+  padding: 1.5rem;
+  border-radius: 1.8rem;
   border: 1px solid #333021;
   box-shadow: 0 15px 20px -15px black;
   transition: 0.2s;
@@ -411,6 +430,7 @@
   font-style: italic;
   margin-bottom: 1rem;
   line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 .testi-user {
@@ -418,6 +438,7 @@
   align-items: center;
   gap: 0.8rem;
   color: #d4af37;
+  flex-wrap: wrap;
 }
 
 .testi-user i {
@@ -425,102 +446,233 @@
   border-radius: 50%;
   padding: 0.5rem;
 }
-        /* FOOTER glossy doff */
-    .footer {
-      margin-top: 4rem;
-      background: linear-gradient(155deg, #101010, #1d1d1d);
-      border-radius: 3rem 3rem 2rem 2rem;
-      padding: 2rem 2.5rem;
-      border-top: 2px solid #463a1e;
-      box-shadow: 0 -10px 30px -10px black;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+
+.testi-user .stars {
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+}
+    /* FOOTER glossy doff */
+.footer {
+  margin-top: 3rem;
+  background: linear-gradient(155deg, #101010, #1d1d1d);
+  border-radius: 2rem;
+  padding: 1.5rem;
+  border-top: 2px solid #463a1e;
+  box-shadow: 0 -10px 30px -10px black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer-copy {
+  color: #888;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.footer-copy strong {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer-social a {
+  color: #b9b9b9;
+  font-size: 1.3rem;
+  transition: 0.2s;
+}
+
+.footer-social a:hover {
+  color: #d4af37;
+  text-shadow: 0 0 8px gold;
+}
+
+/* garis bawah emas */
+hr.gold-hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, #b8860b, #d4af37, transparent);
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* input pengguna – doff elegan */
+.input-uid {
+  background: #1c1c1c;
+  border-radius: 3rem;
+  padding: 0.3rem 0.3rem 0.3rem 1.2rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid #4d3f1d;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto 1.5rem auto;
+}
+
+.input-uid i {
+  color: #d4af37;
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+.input-uid input {
+  background: transparent;
+  border: none;
+  padding: 0.7rem 0;
+  flex: 1;
+  color: white;
+  font-size: 0.9rem;
+  outline: none;
+  min-width: 0;
+}
+
+.input-uid input::placeholder {
+  color: #6f6f6f;
+}
+
+.input-uid button {
+  background: #2d2d2d;
+  border: none;
+  color: #d4af37;
+  padding: 0.5rem 1.2rem;
+  border-radius: 3rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid #7b672e;
+  cursor: pointer;
+  transition: 0.15s;
+  white-space: nowrap;
+}
+
+.input-uid button:hover {
+  background: #3f351c;
+  color: #ffdb7c;
+}
+        /* Media Queries untuk Tablet */
+    @media (min-width: 768px) {
+      body {
+        padding: 1.5rem;
+      }
+      
+      .navbar {
+        padding: 0.9rem 2rem;
+      }
+      
+      .nav-links {
+        order: 0;
+        width: auto;
+        margin-top: 0;
+        gap: 1.5rem;
+      }
+      
+      .nav-links a {
+        font-size: 1rem;
+      }
+      
+      .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer {
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+      }
+      
+      .footer-copy {
+        width: auto;
+      }
+      
+      .footer-social {
+        width: auto;
+      }
+      
+      .payment-methods .label {
+        width: auto;
+      }
+      
+      .input-uid {
+        max-width: 500px;
+      }
     }
 
-    .footer-copy {
-      color: #888;
+    /* Media Queries untuk Laptop/Desktop */
+    @media (min-width: 1024px) {
+      body {
+        padding: 2rem;
+      }
+      
+      .navbar {
+        border-radius: 2rem;
+      }
+      
+      .logo-text h1 {
+        font-size: 2rem;
+      }
+      
+      .nav-links {
+        gap: 2rem;
+      }
+      
+      .nav-links a {
+        font-size: 1.1rem;
+      }
+      
+      .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .stat-card {
+        padding: 1.3rem 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+        padding: 0.2rem 2rem;
+      }
+      
+      .product-grid {
+        gap: 2rem;
+      }
     }
 
-    .footer-copy strong {
-      color: #d4af37;
-      font-weight: 600;
-    }
-
-    .footer-social a {
-      color: #b9b9b9;
-      margin-left: 1.5rem;
-      font-size: 1.4rem;
-      transition: 0.2s;
-    }
-
-    .footer-social a:hover {
-      color: #d4af37;
-      text-shadow: 0 0 8px gold;
-    }
-
-    /* garis bawah emas */
-    hr.gold-hr {
-      border: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #d4af37, #b8860b, #d4af37, transparent);
-      margin: 2rem 0 0.5rem;
-    }
-
-    /* input pengguna – doff elegan */
-    .input-uid {
-      background: #1c1c1c;
-      border-radius: 4rem;
-      padding: 0.5rem 1rem 0.5rem 2rem;
-      display: flex;
-      align-items: center;
-      border: 1px solid #4d3f1d;
-      max-width: 400px;
-      margin: 0 auto 2rem auto;
-    }
-
-    .input-uid i {
-      color: #d4af37;
-      font-size: 1.2rem;
-      margin-right: 10px;
-    }
-
-    .input-uid input {
-      background: transparent;
-      border: none;
-      padding: 0.8rem 0;
-      flex: 1;
-      color: white;
-      font-size: 1rem;
-      outline: none;
-    }
-
-    .input-uid input::placeholder {
-      color: #6f6f6f;
-    }
-
-    .input-uid button {
-      background: #2d2d2d;
-      border: none;
-      color: #d4af37;
-      padding: 0.5rem 1.8rem;
-      border-radius: 3rem;
-      font-weight: 600;
-      border: 1px solid #7b672e;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-
-    .input-uid button:hover {
-      background: #3f351c;
-      color: #ffdb7c;
-    }
-
-    @media (max-width: 720px) {
-      .navbar { flex-direction: column; gap: 1rem; align-items: stretch; }
-      .testimonial-grid { grid-template-columns: 1fr; }
-      .payment-methods { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    /* Untuk layar sangat kecil (HP kecil) */
+    @media (max-width: 380px) {
+      .logo-text h1 {
+        font-size: 1.3rem;
+      }
+      
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+      }
+      
+      .user-glow span:not(.coin-badge) {
+        display: none;
+      }
+      
+      .stat-card {
+        min-width: 100%;
+      }
+      
+      .price-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .btn-order {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -537,23 +689,23 @@
           <span>ROBLOX · ELEGAN</span>
         </div>
       </div>
+      <div class="user-glow">
+        <i class="fas fa-user-astronaut"></i>
+        <span>Ryno_X</span>
+        <div class="coin-badge"><i class="fas fa-coins" style="color:#d4af37;"></i> 1.4K</div>
+      </div>
       <div class="nav-links">
         <a href="#">Beranda</a>
         <a href="#">Robux</a>
         <a href="#">Membership</a>
         <a href="#">Promo</a>
       </div>
-      <div class="user-glow">
-        <i class="fas fa-user-astronaut"></i>
-        <span>Ryno_X</span>
-        <div class="coin-badge"><i class="fas fa-coins" style="color:#d4af37;"></i> 1.420</div>
-      </div>
     </nav>
     <!-- input uid agar terasa interaktif -->
 <div class="input-uid">
   <i class="fas fa-id-card"></i>
-  <input type="text" placeholder="Masukkan username / ID Roblox kamu...">
-  <button>Cek <i class="fas fa-arrow-right"></i></button>
+  <input type="text" placeholder="Masukkan username / ID Roblox...">
+  <button><i class="fas fa-search"></i> Cek</button>
 </div>
 
 <!-- statistik cepat -->
@@ -568,12 +720,12 @@
   </div>
   <div class="stat-card">
     <div class="stat-icon"><i class="fas fa-clock"></i></div>
-    <div><div class="stat-number">5 menit</div><div class="stat-label">proses cepat</div></div>
+    <div><div class="stat-number">5 mnt</div><div class="stat-label">proses cepat</div></div>
   </div>
 </div>
 <!-- produk pilihan -->
 <div class="section-title">
-  <h2>🔥 Pilihan Roblox Populer</h2>
+  <h2>🔥 Robux Populer</h2>
   <div class="gold-line"></div>
 </div>
 
@@ -586,7 +738,7 @@
     </div>
     <div class="card-content">
       <span class="robux-amount">1,200 Robux</span>
-      <span class="robux-sub">+ bonus 50 Robux</span>
+      <span class="robux-sub">+ bonus 50</span>
       <div class="price-row">
         <span class="price">Rp185<small>k</small></span>
         <button class="btn-order"><i class="fas fa-cart-shopping"></i> Beli</button>
@@ -600,14 +752,14 @@
     </div>
     <div class="card-content">
       <span class="robux-amount">2,500 Robux</span>
-      <span class="robux-sub">termasuk item premium</span>
+      <span class="robux-sub">+ item premium</span>
       <div class="price-row">
         <span class="price">Rp359<small>k</small></span>
         <button class="btn-order"><i class="fas fa-cart-shopping"></i> Beli</button>
       </div>
     </div>
   </div>
-    <!-- card 3 glossy -->
+    <!-- card 3 -->
   <div class="product-card">
     <div class="card-img">
       <i class="fas fa-gem"></i>
@@ -615,7 +767,7 @@
     </div>
     <div class="card-content">
       <span class="robux-amount">4,500 Robux</span>
-      <span class="robux-sub">+75 Robux gratis</span>
+      <span class="robux-sub">+75 gratis</span>
       <div class="price-row">
         <span class="price">Rp640<small>k</small></span>
         <button class="btn-order"><i class="fas fa-cart-shopping"></i> Beli</button>
@@ -625,11 +777,11 @@
   <!-- card 4 -->
   <div class="product-card">
     <div class="card-img">
-      <i class="fas fa-crown" style="color:#d4af37;"></i>
+      <i class="fas fa-crown"></i>
     </div>
     <div class="card-content">
       <span class="robux-amount">10,000 Robux</span>
-      <span class="robux-sub">premium glossy</span>
+      <span class="robux-sub">premium</span>
       <div class="price-row">
         <span class="price">Rp1.25<small>jt</small></span>
         <button class="btn-order"><i class="fas fa-cart-shopping"></i> Beli</button>
@@ -637,42 +789,69 @@
     </div>
   </div>
 </div>
-
 <!-- Metode pembayaran elegan -->
 <div class="payment-methods">
-  <span class="label"><i class="fas fa-shield-alt" style="margin-right: 10px;"></i>PEMBAYARAN</span>
+  <span class="label"><i class="fas fa-shield-alt"></i> PEMBAYARAN</span>
   <div class="method-icons">
-    <span><i class="fas fa-credit-card"></i> Visa/Master</span>
-    <span><i class="fas fa-wallet"></i> OVO/GoPay</span>
+    <span><i class="fas fa-credit-card"></i> Visa</span>
+    <span><i class="fas fa-wallet"></i> OVO</span>
     <span><i class="fas fa-mobile-alt"></i> QRIS</span>
     <span><i class="fas fa-coins"></i> Pulsa</span>
   </div>
-  <div class="secure-badge"><i class="fas fa-lock"></i> 256-bit secure</div>
+  <div class="secure-badge"><i class="fas fa-lock"></i> Aman 256-bit</div>
 </div>
-<!-- Testimoni (untuk kesan terpercaya) -->
+<!-- Testimoni -->
 <div class="section-title">
-  <h2>✨ ulasan pelanggan</h2>
+  <h2>✨ Ulasan</h2>
   <div class="gold-line"></div>
 </div>
 
 <div class="testimonial-grid">
   <div class="testi-card">
-    <p>"Proses instant, langsung masuk ke akun anak saya. Recomended!"</p>
-    <div class="testi-user"><i class="fas fa-user-circle"></i> <span>— mamahdinda</span> <i class="fas fa-star" style="color:#d4af37; margin-left:auto;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i></div>
+    <p>"Proses instant, langsung masuk. Recomended!"</p>
+    <div class="testi-user">
+      <i class="fas fa-user-circle"></i> 
+      <span>mamahdinda</span>
+      <div class="stars">
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+      </div>
+    </div>
   </div>
   <div class="testi-card">
-    <p>"Desain webnya elegan, cocok buat top up Roblox. harga bersaing."</p>
-    <div class="testi-user"><i class="fas fa-user-astronaut"></i> <span>— kevin_roblox</span> <i class="fas fa-star" style="color:#d4af37; margin-left:auto;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i></div>
+    <p>"Desain elegan, harga bersaing. Top abis!"</p>
+    <div class="testi-user">
+      <i class="fas fa-user-astronaut"></i> 
+      <span>kevin_rblx</span>
+      <div class="stars">
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+      </div>
+    </div>
   </div>
   <div class="testi-card">
-    <p>"Suka sama warna emasnya, pelayanannya cepat dan aman."</p>
-    <div class="testi-user"><i class="fas fa-robot"></i> <span>— SkizoLovers</span> <i class="fas fa-star" style="color:#d4af37; margin-left:auto;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i></div>
+    <p>"Warna emasnya keren, pelayanan cepat."</p>
+    <div class="testi-user">
+      <i class="fas fa-robot"></i> 
+      <span>SkizoLovers</span>
+      <div class="stars">
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+        <i class="fas fa-star" style="color:#d4af37;"></i>
+      </div>
+    </div>
   </div>
 </div>
-    <!-- Footer glossy hitam + emas -->
+    <!-- Footer -->
     <footer class="footer">
       <div class="footer-copy">
-        © 2025 <strong>SkizoTopUp</strong> · Roblox top up elegan
+        © 2025 <strong>SkizoTopUp</strong> · Roblox elegan
       </div>
       <div class="footer-social">
         <a href="#"><i class="fab fa-whatsapp"></i></a>
@@ -682,7 +861,7 @@
       </div>
     </footer>
     <hr class="gold-hr">
-    <p style="text-align: center; color:#4e4e4e; margin-top: 1rem; font-size: 0.85rem;">hitam doff · glossy · emas — SkizoTopUp #1 Roblox</p>
+    <p style="text-align: center; color:#4e4e4e; margin-top: 0.8rem; font-size: 0.75rem;">hitam doff · glossy · emas — SkizoTopUp</p>
   </div>
 </body>
 </html>
