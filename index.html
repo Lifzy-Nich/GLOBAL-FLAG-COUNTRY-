@@ -2,698 +2,687 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>GLOBAL FLAG · PILIHAN GANDA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkizoTopUp • Roblox elegan</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     }
 
     body {
+      background-color: #0a0a0a; /* dasar hitam doff pekat */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       min-height: 100vh;
-      background: #000000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px;
+      padding: 2rem 1.5rem;
     }
 
-    /* KARTU UTAMA - HITAM DOFF + GLOSSY + EMAS */
-    .game-container {
-      max-width: 1100px;
+    /* container utama – simetris & lebar terbatas */
+    .site-wrapper {
+      max-width: 1280px;
       width: 100%;
-      background: #0a0a0a;
-      background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
-      border: 2px solid #c9a43b;
-      border-radius: 60px;
-      box-shadow: 0 30px 50px rgba(0,0,0,1), 
-                  0 0 0 2px #c9a43b inset,
-                  0 0 40px rgba(201, 164, 59, 0.3);
-      padding: 30px 25px;
-      transition: all 0.3s ease;
+      background: transparent;
     }
-
-    /* RESPONSIVE PADDING */
-    @media (max-width: 480px) {
-      .game-container {
-        padding: 20px 15px;
-        border-radius: 40px;
-      }
-    }
-
-    /* HEADER EMAS GLOSSY */
-    .header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .header h1 {
-      font-size: clamp(2.5rem, 10vw, 4.8rem);
-      font-weight: 800;
-      letter-spacing: clamp(4px, 2vw, 10px);
-      text-transform: uppercase;
-      background: linear-gradient(180deg, #fae68f, #c9a43b, #a07e29);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 5px 20px rgba(201, 164, 59, 0.7), 0 8px 15px black;
-      margin-bottom: 5px;
-      line-height: 1.2;
-    }
-
-    .gold-underline {
-      width: min(280px, 70%);
-      height: 4px;
-      background: linear-gradient(90deg, transparent, #c9a43b, #f5d97a, #c9a43b, transparent);
-      margin: 10px auto 5px;
-      border-radius: 10px;
-      box-shadow: 0 0 25px #ffd966, 0 2px 10px black;
-    }
-
-    .sub {
-      color: #dbbf6c;
-      font-weight: 500;
-      letter-spacing: 3px;
-      font-size: clamp(0.8rem, 3vw, 1.1rem);
-      text-transform: uppercase;
-      text-shadow: 0 3px 8px black;
-    }
-
-    /* AREA BENDERA - HITAM GLOSSY DENGAN EMAS */
-    .flag-display {
-      background: #080808;
-      border-radius: 50px;
-      padding: 35px 15px;
-      margin-bottom: 25px;
-      border: 2px solid #c9a43b;
-      box-shadow: inset 0 10px 25px rgba(0,0,0,0.95), 0 20px 40px black;
-    }
-
-    .flag-img {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .flag-img img {
-      width: 100%;
-      max-width: 480px;
-      height: auto;
-      aspect-ratio: 3/2;
-      object-fit: cover;
-      border-radius: 40px;
-      box-shadow: 0 25px 40px -10px black, 
-                  0 0 0 5px #2a2a2a, 
-                  0 0 0 7px #c9a43b,
-                  0 0 50px rgba(201, 164, 59, 0.5);
-      background: #1a1a1a;
-      transition: all 0.3s ease;
-    }
-
-    .flag-img img:hover {
-      transform: scale(1.01);
-      box-shadow: 0 30px 50px -10px black, 
-                  0 0 0 5px #3a3a3a, 
-                  0 0 0 7px #f5d97a,
-                  0 0 70px rgba(245, 217, 122, 0.6);
-    }
-    /* PANEL INTERAKSI - HITAM DOFF */
-.interaction-panel {
-  background: #0c0c0c;
-  border-radius: 50px;
-  padding: 28px 25px;
-  margin: 5px 0 10px;
-  border: 2px solid #c9a43b;
-  box-shadow: 0 15px 30px -5px black, 0 0 0 2px #c9a43b inset;
-}
-
-/* HEADER QUIZ (TANPA COUNTER) */
-.quiz-header {
+    /* HEADER – glossy black + emas */
+.navbar {
+  background: linear-gradient(145deg, #1f1f1f 0%, #121212 100%);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.35); /* emas subtle */
+  border-radius: 2rem 2rem 1.5rem 1.5rem;
+  box-shadow: 0 12px 30px -10px rgba(0,0,0,0.8), 0 0 0 1px rgba(212, 175, 55, 0.15) inset;
+  padding: 0.9rem 2.2rem;
+  margin-bottom: 3rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 25px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  backdrop-filter: blur(2px);
 }
 
-.quiz-title {
-  color: #f5d97a;
-  font-size: clamp(1.1rem, 4vw, 1.4rem);
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  background: #b8860b; /* emas tua */
+  color: #0a0a0a;
+  width: 48px;
+  height: 48px;
+  border-radius: 18px 6px 18px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 5px 0 #6d4c1d, 0 8px 15px rgba(0,0,0,0.6);
+}
+
+.logo-text h1 {
+  font-size: 2rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  background: #1a150a;
-  padding: 12px 35px;
-  border-radius: 60px;
-  border: 2px solid #c9a43b;
-  box-shadow: 0 5px 0 #0a0702, 0 10px 20px black;
-  text-shadow: 0 2px 5px black;
+  letter-spacing: -0.5px;
+  background: linear-gradient(130deg, #f5e7b2 20%, #d4af37 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
 }
 
-/* GRID OPSI - 2 KOLOM SAMA RATA (2 KIRI 2 KANAN) */
-.options-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Dua kolom sama */
-  gap: 18px;
-  margin: 25px 0 20px;
+.logo-text span {
+  font-size: 0.9rem;
+  color: #a1a1a1;
+  letter-spacing: 1.5px;
+  display: block;
+  line-height: 1.2;
+  font-weight: 300;
+}
+    .nav-links {
+  display: flex;
+  gap: 2rem;
 }
 
-/* TOMBOL OPSI - HITAM GLOSSY DENGAN EMAS */
-.option-btn {
-  background: #121212;
-  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-  border: 2.5px solid #a08333;
-  border-radius: 70px;
-  padding: 20px 12px;
-  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+.nav-links a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  border-bottom-color: #d4af37;
+  color: #fff;
+  text-shadow: 0 0 6px #d4af3750;
+}
+
+/* panel akun kecil – glossy doff */
+.user-glow {
+  background: #1b1b1b; /* doff glossy look */
+  border-radius: 3rem;
+  padding: 0.4rem 1rem 0.4rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 5px 0 #0b0b0b, 0 6px 14px black;
+}
+
+.user-glow i {
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+.user-glow span {
+  color: #ececec;
+  font-weight: 400;
+}
+
+.user-glow .coin-badge {
+  background: #2a2a2a;
+  border-radius: 2rem;
+  padding: 0.3rem 1rem;
+  border-left: 2px solid #f5c542;
   font-weight: 600;
-  color: #f0d47e;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  box-shadow: 0 8px 0 #0a0702, 0 12px 25px black;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-  word-break: break-word;
-  border: 2px solid #b28f2f;
+  color: #f5d97b;
+}
+    /* kartu statistik / info */
+.stats-grid {
+  display: flex;
+  gap: 1.8rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 
-.option-btn:hover:not(:disabled) {
-  transform: translateY(4px);
-  box-shadow: 0 4px 0 #0a0702, 0 12px 25px black;
-  background: #222222;
-  color: #f8e09c;
-  border-color: #f5d97a;
+.stat-card {
+  background: #151515; /* hitam doff */
+  border-radius: 2rem;
+  padding: 1.3rem 2.5rem;
+  box-shadow: 0 15px 25px -10px #000000cc, 0 0 0 1px #3a2e0f inset;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border-bottom: 3px solid #d4af37;
+  transition: 0.2s;
+  flex: 1 1 180px;
+  min-width: 200px;
+  justify-content: center;
 }
 
-.option-btn:active:not(:disabled) {
-  transform: translateY(6px);
-  box-shadow: 0 2px 0 #0a0702, 0 8px 20px black;
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-bottom-color: #f5d742;
+  box-shadow: 0 22px 28px -12px #b8860b40;
 }
 
-/* WARNA JAWABAN BENAR - HIJAU EMAS */
-.option-btn.selected-correct {
-  background: #1f4d1f;
-  background: linear-gradient(145deg, #2b5e2b, #1a3f1a);
-  border-color: #dbb44b;
+.stat-icon {
+  background: #2a2a2a;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-size: 1.7rem;
+  border: 1px solid #53441f;
+}
+
+.stat-number {
+  font-size: 1.9rem;
+  font-weight: 700;
   color: white;
-  box-shadow: 0 0 30px #6b8c3f, 0 6px 0 #0f4d0f;
-  transform: translateY(2px);
+  line-height: 1.2;
 }
 
-/* WARNA JAWABAN SALAH - MERAH DOFF */
-.option-btn.selected-wrong {
-  background: #4d1f1f;
-  background: linear-gradient(145deg, #5e2b2b, #3f1a1a);
-  border-color: #b95a5a;
-  color: #ffd6d6;
-  box-shadow: 0 0 30px #8c3f3f, 0 6px 0 #4d0f0f;
-  transform: translateY(2px);
+.stat-label {
+  color: #b9b9b9;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+    /* judul seksi */
+.section-title {
+  margin: 3rem 0 2rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.option-btn:disabled {
-  opacity: 0.8;
-  cursor: not-allowed;
+.section-title h2 {
+  color: #e0e0e0;
+  font-size: 2rem;
+  font-weight: 500;
+  background: #1d1d1d;
+  padding: 0.2rem 2rem 0.2rem 1.8rem;
+  border-radius: 40px;
+  border-left: 6px solid #d4af37;
+  box-shadow: 0 5px 0 #0b0b0b;
+  letter-spacing: -0.3px;
 }
-        /* HINT BOX - HITAM DOFF DENGAN AKSEN EMAS */
-    .hint-box {
-      background: #0f0f0f;
-      border-radius: 70px;
-      padding: 18px 28px;
+
+.section-title .gold-line {
+  height: 3px;
+  flex: 1;
+  background: linear-gradient(90deg, #d4af37, transparent);
+  margin-left: 20px;
+}
+
+/* GRID PRODUK – rapi, simetris */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem 1.8rem;
+  margin-bottom: 3rem;
+}
+
+.product-card {
+  background: #131313; /* doff black */
+  border-radius: 2rem 2rem 2rem 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -12px black, 0 0 0 1px #2f2f2f;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid #3f321b;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+  border-bottom: 3px solid #d4af37;
+  box-shadow: 0 25px 30px -12px #b8860b30, 0 0 0 1px #736026;
+}
+    .card-img {
+  background: #1e1e1e; /* glossy look */
+  padding: 1.8rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px dashed #53441f;
+  position: relative;
+}
+
+.card-img i {
+  font-size: 5rem;
+  color: #d4af37;
+  filter: drop-shadow(0 8px 8px #000000);
+}
+
+.popular-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #d4af37;
+  color: #121212;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.2rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  border: 1px solid #ffd966;
+}
+
+.card-content {
+  padding: 1.5rem 1.2rem 1.5rem;
+  background: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.robux-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, #f5e3b3, #d4af37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.2;
+}
+
+.robux-sub {
+  color: #a7a7a7;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px dotted #3f3f3f;
+  padding-bottom: 0.6rem;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.price small {
+  font-size: 1rem;
+  color: #b4b4b4;
+}
+
+.btn-order {
+  background: #242424;
+  border: none;
+  color: #d4af37;
+  font-weight: 600;
+  padding: 0.4rem 1.3rem;
+  border-radius: 3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid #5e4d25;
+  box-shadow: 0 3px 0 #0a0a0a;
+}
+
+.btn-order:hover {
+  background: #2e2b1f;
+  color: #f5d742;
+  border-color: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #1a1300;
+}
+    /* METODE PEMBAYARAN – glossy hitam + emas */
+.payment-methods {
+  background: #1a1a1a; /* glossy doff */
+  border-radius: 3rem;
+  padding: 1.8rem 2.2rem;
+  margin: 3rem 0;
+  border: 1px solid #49431e;
+  box-shadow: 0 18px 25px -16px black;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.payment-methods .label {
+  color: #cfb459;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-right: 2rem;
+}
+
+.method-icons {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.method-icons span {
+  background: #2b2b2b;
+  color: #eee;
+  padding: 0.6rem 1.4rem;
+  border-radius: 3rem;
+  font-weight: 500;
+  border-left: 3px solid #d4af37;
+  box-shadow: 0 5px 0 #0f0f0f;
+}
+
+.method-icons i {
+  color: #d4af37;
+  margin-right: 8px;
+}
+
+.secure-badge {
+  color: #b6a165;
+  font-size: 1rem;
+}
+
+/* TESTIMONI / SECTION SIMETRIS */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0 3rem;
+}
+
+.testi-card {
+  background: #121212;
+  padding: 1.8rem 1.5rem;
+  border-radius: 2.2rem;
+  border: 1px solid #333021;
+  box-shadow: 0 15px 20px -15px black;
+  transition: 0.2s;
+}
+
+.testi-card:hover {
+  border-color: #d4af37;
+}
+
+.testi-card p {
+  color: #cfcfcf;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.testi-user {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #d4af37;
+}
+
+.testi-user i {
+  background: #2a2a2a;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+        /* FOOTER glossy doff */
+    .footer {
+      margin-top: 4rem;
+      background: linear-gradient(155deg, #101010, #1d1d1d);
+      border-radius: 3rem 3rem 2rem 2rem;
+      padding: 2rem 2.5rem;
+      border-top: 2px solid #463a1e;
+      box-shadow: 0 -10px 30px -10px black;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      color: #888;
+    }
+
+    .footer-copy strong {
+      color: #d4af37;
+      font-weight: 600;
+    }
+
+    .footer-social a {
+      color: #b9b9b9;
+      margin-left: 1.5rem;
+      font-size: 1.4rem;
+      transition: 0.2s;
+    }
+
+    .footer-social a:hover {
+      color: #d4af37;
+      text-shadow: 0 0 8px gold;
+    }
+
+    /* garis bawah emas */
+    hr.gold-hr {
+      border: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d4af37, #b8860b, #d4af37, transparent);
+      margin: 2rem 0 0.5rem;
+    }
+
+    /* input pengguna – doff elegan */
+    .input-uid {
+      background: #1c1c1c;
+      border-radius: 4rem;
+      padding: 0.5rem 1rem 0.5rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      border: 2px solid #c9a43b;
-      box-shadow: inset 0 4px 10px #000000, 0 12px 25px black;
-      margin: 20px 0 15px;
+      border: 1px solid #4d3f1d;
+      max-width: 400px;
+      margin: 0 auto 2rem auto;
     }
 
-    .hint-text {
-      color: #ecdbaa;
-      font-size: clamp(1.1rem, 3.8vw, 1.5rem);
-      font-weight: 500;
-      background: #1e1e1e;
-      padding: 12px 30px;
-      border-radius: 60px;
-      border-left: 8px solid #c9a43b;
-      box-shadow: inset 0 3px 8px black;
-      flex: 2 1 300px;
-      letter-spacing: 0.5px;
-      word-break: break-word;
+    .input-uid i {
+      color: #d4af37;
+      font-size: 1.2rem;
+      margin-right: 10px;
     }
 
-    .hint-btn {
-      background: #1a1a1a;
-      border: 3px solid #c9a43b;
-      color: #f5d97a;
-      padding: 14px 40px;
-      border-radius: 60px;
-      font-size: clamp(1.2rem, 4vw, 1.5rem);
-      font-weight: 700;
-      box-shadow: 0 0 25px rgba(201, 164, 59, 0.6), 0 8px 0 #0f0f0f;
-      transition: 0.15s;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      background: linear-gradient(145deg, #252525, #121212);
+    .input-uid input {
+      background: transparent;
+      border: none;
+      padding: 0.8rem 0;
+      flex: 1;
+      color: white;
+      font-size: 1rem;
+      outline: none;
     }
 
-    .hint-btn:hover {
-      background: #c9a43b;
-      color: #000000;
-      border-color: #fae68f;
-      box-shadow: 0 0 45px #ffd966, 0 5px 0 #0f0f0f;
-      transform: translateY(3px);
+    .input-uid input::placeholder {
+      color: #6f6f6f;
     }
 
-    .hint-btn:active {
-      transform: translateY(6px);
-      box-shadow: 0 0 35px #ffd966, 0 2px 0 #0f0f0f;
-    }
-
-    @media (max-width: 600px) {
-      .hint-box {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .hint-btn {
-        width: 100%;
-      }
-    }
-
-    /* TOMBOL NEXT - EMAS MEWAH */
-    .next-btn-container {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0 5px;
-    }
-
-    .next-btn {
-      background: #1e1b10;
-      background: linear-gradient(145deg, #2b2517, #141107);
-      border: 3px solid #c9a43b;
-      color: #f5d97a;
-      padding: 16px 50px;
-      border-radius: 70px;
-      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      cursor: pointer;
-      box-shadow: 0 10px 0 #0a0702, 0 15px 30px black, 0 0 30px rgba(201, 164, 59, 0.4);
-      transition: 0.08s linear;
-      width: fit-content;
-      min-width: 250px;
-    }
-
-    .next-btn:hover {
-      transform: translateY(5px);
-      box-shadow: 0 5px 0 #0a0702, 0 15px 30px black, 0 0 45px #ffd966;
-      background: #2f2a1a;
-      color: #fae68f;
-      border-color: #f5d97a;
-    }
-
-    .next-btn:active {
-      transform: translateY(9px);
-      box-shadow: 0 1px 0 #0a0702, 0 10px 25px black;
-    }
-
-    .next-btn.hidden {
-      display: none;
-    }
-
-    /* PESAN FEEDBACK */
-    .message {
-      text-align: center;
-      font-size: clamp(1.1rem, 4vw, 1.4rem);
-      margin: 20px 0 5px;
-      min-height: 3rem;
+    .input-uid button {
+      background: #2d2d2d;
+      border: none;
+      color: #d4af37;
+      padding: 0.5rem 1.8rem;
+      border-radius: 3rem;
       font-weight: 600;
-      padding: 0 10px;
+      border: 1px solid #7b672e;
+      cursor: pointer;
+      transition: 0.15s;
     }
 
-    .success-msg {
-      color: #c5e0a8;
-      text-shadow: 0 0 10px #3f9e3f, 0 0 20px #2e7d2e;
-    }
-    .error-msg {
-      color: #f0bc9c;
-      text-shadow: 0 0 10px #b1451a, 0 0 20px #942f0a;
+    .input-uid button:hover {
+      background: #3f351c;
+      color: #ffdb7c;
     }
 
-    /* FOOTER - EMAS DOFF */
-    .footer {
-      text-align: center;
-      color: #b59d4f;
-      margin-top: 25px;
-      font-size: clamp(0.8rem, 3vw, 1rem);
-      border-top: 2px solid #7d6629;
-      padding-top: 20px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 500;
-      text-shadow: 0 2px 5px black;
-    }
-
-    /* RESPONSIVE UNTUK OPSI DI HP TETAP 2 KOLOM */
-    @media (max-width: 500px) {
-      .options-container {
-        gap: 12px;
-      }
-      .option-btn {
-        padding: 16px 8px;
-        font-size: 1rem;
-      }
+    @media (max-width: 720px) {
+      .navbar { flex-direction: column; gap: 1rem; align-items: stretch; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .payment-methods { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
   </style>
 </head>
 <body>
-<div class="game-container">
-  <div class="header">
-    <h1>GLOBAL FLAG</h1>
-    <div class="gold-underline"></div>
-    <div class="sub">195+ NEGARA · PILIHAN GANDA</div>
+  <div class="site-wrapper">
+    <!-- header glossy hitam + emas -->
+    <nav class="navbar">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <i class="fas fa-crown"></i>
+        </div>
+        <div class="logo-text">
+          <h1>SkizoTopUp</h1>
+          <span>ROBLOX · ELEGAN</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#">Beranda</a>
+        <a href="#">Robux</a>
+        <a href="#">Membership</a>
+        <a href="#">Promo</a>
+      </div>
+      <div class="user-glow">
+        <i class="fas fa-user-astronaut"></i>
+        <span>Ryno_X</span>
+        <div class="coin-badge"><i class="fas fa-coins" style="color:#d4af37;"></i> 1.420</div>
+      </div>
+    </nav>
+    <!-- input uid agar terasa interaktif -->
+<div class="input-uid">
+  <i class="fas fa-id-card"></i>
+  <input type="text" placeholder="Masukkan username / ID Roblox kamu...">
+  <button>Cek <i class="fas fa-arrow-right"></i></button>
+</div>
+
+<!-- statistik cepat -->
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-users"></i></div>
+    <div><div class="stat-number">14.8k</div><div class="stat-label">pelanggan</div></div>
   </div>
-
-  <div class="flag-display">
-    <div class="flag-img" id="flagImageContainer">
-      <img id="flagImage" src="" alt="bendera negara">
-    </div>
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+    <div><div class="stat-number">2.4k</div><div class="stat-label">online</div></div>
   </div>
-
-  <div class="interaction-panel">
-    <div class="quiz-header">
-      <div class="quiz-title">🌍 PILIH NEGARA</div>
-    </div>
-
-    <!-- 4 OPSI - 2 KOLOM (2 KIRI 2 KANAN) -->
-    <div class="options-container" id="optionsContainer">
-      <button class="option-btn" id="option0">-</button>
-      <button class="option-btn" id="option1">-</button>
-      <button class="option-btn" id="option2">-</button>
-      <button class="option-btn" id="option3">-</button>
-    </div>
-
-    <!-- HINT BOX (TANPA BATAS) -->
-    <div class="hint-box">
-      <div class="hint-text" id="hintDisplay">👑 TEKAN HINT</div>
-      <button class="hint-btn" id="hintBtn">🔍 HINT</button>
-    </div>
-
-    <!-- NEXT BUTTON (MUNCUL SETELAH MENJAWAB) -->
-    <div class="next-btn-container">
-      <button class="next-btn hidden" id="nextBtn">⟳ BERIKUTNYA</button>
-    </div>
-
-    <!-- AREA PESAN -->
-    <div id="messageArea" class="message"></div>
-  </div>
-
-  <div class="footer">
-    <span>✦ TANPA SKOR ✦ TANPA BATAS HINT ✦ 195+ BENDERA ✦</span>
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+    <div><div class="stat-number">5 menit</div><div class="stat-label">proses cepat</div></div>
   </div>
 </div>
-<script>
-(function() {
-  const FLAG_BASE = 'https://flagcdn.com/w320/';
-  
-  const countries = [
-    { code: 'id', name: 'indonesia' }, { code: 'my', name: 'malaysia' },
-    { code: 'sg', name: 'singapura' }, { code: 'bn', name: 'brunei' },
-    { code: 'ph', name: 'filipina' }, { code: 'th', name: 'thailand' },
-    { code: 'mm', name: 'myanmar' }, { code: 'la', name: 'laos' },
-    { code: 'vn', name: 'vietnam' }, { code: 'kh', name: 'kamboja' },
-    { code: 'in', name: 'india' }, { code: 'pk', name: 'pakistan' },
-    { code: 'lk', name: 'sri lanka' }, { code: 'bd', name: 'bangladesh' },
-    { code: 'np', name: 'nepal' }, { code: 'bt', name: 'bhutan' },
-    { code: 'mv', name: 'maladewa' }, { code: 'cn', name: 'china' },
-    { code: 'jp', name: 'jepang' }, { code: 'kr', name: 'korea selatan' },
-    { code: 'kp', name: 'korea utara' }, { code: 'mn', name: 'mongolia' },
-    { code: 'tw', name: 'taiwan' }, { code: 'sa', name: 'arab saudi' },
-    { code: 'ye', name: 'yaman' }, { code: 'om', name: 'oman' },
-    { code: 'ae', name: 'uni emirat arab' }, { code: 'qa', name: 'qatar' },
-    { code: 'kw', name: 'kuwait' }, { code: 'iq', name: 'irak' },
-    { code: 'ir', name: 'iran' }, { code: 'sy', name: 'siria' },
-    { code: 'jo', name: 'yordania' }, { code: 'lb', name: 'lebanon' },
-    { code: 'il', name: 'israel' }, { code: 'cy', name: 'siprus' },
-    { code: 'eg', name: 'mesir' }, { code: 'ly', name: 'libya' },
-    { code: 'dz', name: 'aljazair' }, { code: 'ma', name: 'maroko' },
-    { code: 'tn', name: 'tunisia' }, { code: 'mr', name: 'mauritania' },
-    { code: 'sd', name: 'sudan' }, { code: 'ss', name: 'sudan selatan' },
-    { code: 'er', name: 'eritrea' }, { code: 'et', name: 'ethiopia' },
-    { code: 'dj', name: 'djibouti' }, { code: 'so', name: 'somalia' },
-    { code: 'ke', name: 'kenya' }, { code: 'ug', name: 'uganda' },
-    { code: 'tz', name: 'tanzania' }, { code: 'mz', name: 'mozambik' },
-    { code: 'mg', name: 'madagaskar' }, { code: 'km', name: 'komoro' },
-    { code: 'sc', name: 'seychelles' }, { code: 'za', name: 'afrika selatan' },
-    { code: 'na', name: 'namibia' }, { code: 'bw', name: 'botswana' },
-    { code: 'zw', name: 'zimbabwe' }, { code: 'zm', name: 'zambia' },
-    { code: 'mw', name: 'malawi' }, { code: 'ao', name: 'angola' },
-    { code: 'cd', name: 'republik demokratik kongo' }, { code: 'cg', name: 'kongo' },
-    { code: 'ga', name: 'gabon' }, { code: 'gq', name: 'guinea ekuator' },
-    { code: 'st', name: 'sao tome dan principe' }, { code: 'ng', name: 'nigeria' },
-    { code: 'ne', name: 'niger' }, { code: 'ml', name: 'mali' },
-    { code: 'bf', name: 'burkina faso' }, { code: 'mu', name: 'mauritius' },
-    { code: 'ci', name: 'pantai gading' }, { code: 'gh', name: 'ghana' },
-    { code: 'tg', name: 'togo' }, { code: 'bj', name: 'benin' },
-    { code: 'lr', name: 'liberia' }, { code: 'sl', name: 'sierra leone' },
-    { code: 'gn', name: 'guinea' }, { code: 'gw', name: 'guinea bissau' },
-    { code: 'sn', name: 'senegal' }, { code: 'gm', name: 'gambia' },
-    { code: 'cv', name: 'tanjung verde' }, { code: 'us', name: 'amerika serikat' },
-    { code: 'ca', name: 'kanada' }, { code: 'mx', name: 'mexico' },
-    { code: 'gt', name: 'guatemala' }, { code: 'bz', name: 'belize' },
-    { code: 'hn', name: 'honduras' }, { code: 'sv', name: 'el salvador' },
-    { code: 'ni', name: 'nikaragua' }, { code: 'cr', name: 'kosta rika' },
-    { code: 'pa', name: 'panama' }, { code: 'cu', name: 'kuba' },
-    { code: 'jm', name: 'jamaika' }, { code: 'ht', name: 'haiti' },
-    { code: 'do', name: 'republik dominika' }, { code: 'pr', name: 'puerto riko' },
-    { code: 'bs', name: 'bahama' }, { code: 'tt', name: 'trinidad dan tobago' },
-    { code: 'bb', name: 'barbados' }, { code: 'lc', name: 'saint lucia' },
-    { code: 'vc', name: 'saint vincent dan grenadines' }, { code: 'gd', name: 'grenada' },
-    { code: 'ag', name: 'antigua dan barbuda' }, { code: 'dm', name: 'dominika' },
-    { code: 'kn', name: 'saint kitts dan nevis' }, { code: 'co', name: 'kolombia' },
-    { code: 've', name: 'venezuela' }, { code: 'gy', name: 'guyana' },
-    { code: 'sr', name: 'suriname' }, { code: 'gf', name: 'guyana prancis' },
-    { code: 'br', name: 'brazil' }, { code: 'ec', name: 'ekuador' },
-    { code: 'pe', name: 'peru' }, { code: 'bo', name: 'bolivia' },
-    { code: 'py', name: 'paraguay' }, { code: 'cl', name: 'chili' },
-    { code: 'ar', name: 'argentina' }, { code: 'uy', name: 'uruguay' },
-    { code: 'gb', name: 'inggris' }, { code: 'fr', name: 'prancis' },
-    { code: 'es', name: 'spanyol' }, { code: 'pt', name: 'portugal' },
-    { code: 'ad', name: 'andorra' }, { code: 'mc', name: 'monako' },
-    { code: 'it', name: 'italia' }, { code: 'va', name: 'vatican' },
-    { code: 'sm', name: 'san marino' }, { code: 'mt', name: 'malta' },
-    { code: 'al', name: 'albania' }, { code: 'gr', name: 'yunani' },
-    { code: 'mk', name: 'makedonia utara' }, { code: 'bg', name: 'bulgaria' },
-    { code: 'rs', name: 'serbia' }, { code: 'me', name: 'montenegro' },
-    { code: 'ba', name: 'bosnia dan herzegovina' }, { code: 'hr', name: 'kroasia' },
-    { code: 'si', name: 'slovenia' }, { code: 'sk', name: 'slowakia' },
-    { code: 'hu', name: 'hongaria' }, { code: 'ro', name: 'rumania' },
-    { code: 'md', name: 'moldova' }, { code: 'pl', name: 'polandia' },
-    { code: 'cz', name: 'ceko' }, { code: 'at', name: 'austria' },
-    { code: 'ch', name: 'swiss' }, { code: 'li', name: 'liechtenstein' },
-    { code: 'de', name: 'jerman' }, { code: 'nl', name: 'belanda' },
-    { code: 'be', name: 'belgia' }, { code: 'lu', name: 'luksemburg' },
-    { code: 'ie', name: 'irlandia' }, { code: 'dk', name: 'denmark' },
-    { code: 'is', name: 'islandia' }, { code: 'no', name: 'norwegia' },
-    { code: 'se', name: 'swedia' }, { code: 'fi', name: 'finlandia' },
-    { code: 'ee', name: 'estonia' }, { code: 'lv', name: 'latvia' },
-    { code: 'lt', name: 'lituania' }, { code: 'by', name: 'belarus' },
-    { code: 'ua', name: 'ukraina' }, { code: 'ru', name: 'rusia' },
-    { code: 'ge', name: 'georgia' }, { code: 'az', name: 'azerbaijan' },
-    { code: 'am', name: 'armenia' }, { code: 'kz', name: 'kazakhstan' },
-    { code: 'uz', name: 'uzbekistan' }, { code: 'tm', name: 'turkmenistan' },
-    { code: 'kg', name: 'kirgizstan' }, { code: 'tj', name: 'tajikistan' },
-    { code: 'af', name: 'afghanistan' }, { code: 'au', name: 'australia' },
-    { code: 'nz', name: 'selandia baru' }, { code: 'pg', name: 'papua nugini' },
-    { code: 'fj', name: 'fiji' }, { code: 'sb', name: 'kepulauan solomon' },
-    { code: 'vu', name: 'vanuatu' }, { code: 'ws', name: 'samoa' },
-    { code: 'to', name: 'tonga' }, { code: 'ki', name: 'kiribati' },
-    { code: 'fm', name: 'mikronesia' }, { code: 'pw', name: 'palau' },
-    { code: 'nr', name: 'nauru' }, { code: 'tv', name: 'tuvalu' },
-    { code: 'mh', name: 'kepulauan marshall' }, { code: 'xk', name: 'kosovo' },
-    { code: 'eh', name: 'sahara barat' }, { code: 'ps', name: 'palestina' }
-  ];
+<!-- produk pilihan -->
+<div class="section-title">
+  <h2>🔥 Pilihan Roblox Populer</h2>
+  <div class="gold-line"></div>
+</div>
 
-  // STATE
-  let remainingItems = [];
-  let currentFlag = null;
-  let options = [];
-  let answered = false;
+<div class="product-grid">
+  <!-- card 1 -->
+  <div class="product-card">
+    <div class="card-img">
+      <i class="fab fa-roblox"></i>
+      <span class="popular-tag">best</span>
+    </div>
+    <div class="card-content">
+      <span class="robux-amount">1,200 Robux</span>
+      <span class="robux-sub">+ bonus 50 Robux</span>
+      <div class="price-row">
+        <span class="price">Rp185<small>k</small></span>
+        <button class="btn-order"><i class="fas fa-cart-shopping"></i> Beli</button>
+      </div>
+    </div>
+  </div>
+  <!-- card 2 -->
+  <div class="product-card">
+    <div class="card-img">
+      <i class="fab fa-roblox"></i>
+    </div>
+    <div class="card-content">
+      <span class="robux-amount">2,500 Robux</span>
+      <span class="robux-sub">termasuk item premium</span>
+      <div class="price-row">
+        <span class="price">Rp359<small>k</small></span>
+        <button class="btn-order"><i class="fas fa-cart-shopping"></i> Beli</button>
+      </div>
+    </div>
+  </div>
+    <!-- card 3 glossy -->
+  <div class="product-card">
+    <div class="card-img">
+      <i class="fas fa-gem"></i>
+      <span class="popular-tag">hemat</span>
+    </div>
+    <div class="card-content">
+      <span class="robux-amount">4,500 Robux</span>
+      <span class="robux-sub">+75 Robux gratis</span>
+      <div class="price-row">
+        <span class="price">Rp640<small>k</small></span>
+        <button class="btn-order"><i class="fas fa-cart-shopping"></i> Beli</button>
+      </div>
+    </div>
+  </div>
+  <!-- card 4 -->
+  <div class="product-card">
+    <div class="card-img">
+      <i class="fas fa-crown" style="color:#d4af37;"></i>
+    </div>
+    <div class="card-content">
+      <span class="robux-amount">10,000 Robux</span>
+      <span class="robux-sub">premium glossy</span>
+      <div class="price-row">
+        <span class="price">Rp1.25<small>jt</small></span>
+        <button class="btn-order"><i class="fas fa-cart-shopping"></i> Beli</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-  // DOM Elements
-  const flagImg = document.getElementById('flagImage');
-  const hintDisplay = document.getElementById('hintDisplay');
-  const hintBtn = document.getElementById('hintBtn');
-  const messageArea = document.getElementById('messageArea');
-  const nextBtn = document.getElementById('nextBtn');
-  
-  const optionBtns = [
-    document.getElementById('option0'),
-    document.getElementById('option1'),
-    document.getElementById('option2'),
-    document.getElementById('option3')
-  ];
+<!-- Metode pembayaran elegan -->
+<div class="payment-methods">
+  <span class="label"><i class="fas fa-shield-alt" style="margin-right: 10px;"></i>PEMBAYARAN</span>
+  <div class="method-icons">
+    <span><i class="fas fa-credit-card"></i> Visa/Master</span>
+    <span><i class="fas fa-wallet"></i> OVO/GoPay</span>
+    <span><i class="fas fa-mobile-alt"></i> QRIS</span>
+    <span><i class="fas fa-coins"></i> Pulsa</span>
+  </div>
+  <div class="secure-badge"><i class="fas fa-lock"></i> 256-bit secure</div>
+</div>
+<!-- Testimoni (untuk kesan terpercaya) -->
+<div class="section-title">
+  <h2>✨ ulasan pelanggan</h2>
+  <div class="gold-line"></div>
+</div>
 
-  // Helper functions
-  function shuffleArray(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
-
-  // Ambil 3 pilihan acak (selain jawaban benar)
-  function getRandomOptions(correctName, count = 3) {
-    const otherCountries = remainingItems
-      .filter(item => item.name !== correctName)
-      .map(item => item.name);
-    
-    const shuffled = shuffleArray([...otherCountries]);
-    return shuffled.slice(0, count);
-  }
-
-  // Reset untuk pertanyaan baru
-  function resetForNewQuestion() {
-    answered = false;
-    nextBtn.classList.add('hidden');
-    
-    optionBtns.forEach(btn => {
-      btn.disabled = false;
-      btn.classList.remove('selected-correct', 'selected-wrong');
-    });
-  }
-
-  // Siapkan 4 pilihan
-  function prepareOptions() {
-    if (!currentFlag) return;
-    
-    const correctName = currentFlag.name;
-    const wrongNames = getRandomOptions(correctName, 3);
-    
-    options = [correctName, ...wrongNames];
-    options = shuffleArray(options);
-    
-    optionBtns.forEach((btn, index) => {
-      btn.textContent = options[index] || '-';
-    });
-  }
-
-  // Inisialisasi game
-  function initGame() {
-    remainingItems = countries.map(c => ({ code: c.code, name: c.name }));
-    remainingItems = shuffleArray(remainingItems);
-    pickNewFlag();
-    messageArea.innerHTML = '';
-    resetForNewQuestion();
-  }
-
-  // Ambil bendera baru
-  function pickNewFlag() {
-    if (remainingItems.length === 0) {
-      currentFlag = null;
-      flagImg.src = '';
-      flagImg.alt = 'Selesai!';
-      hintDisplay.innerText = '✨ SELESAI! SEMUA BENDERA TERBAK ✨';
-      optionBtns.forEach(btn => {
-        btn.textContent = '-';
-        btn.disabled = true;
-      });
-      nextBtn.classList.add('hidden');
-      return;
-    }
-    
-    const randomIndex = Math.floor(Math.random() * remainingItems.length);
-    currentFlag = { ...remainingItems[randomIndex] };
-    flagImg.src = `${FLAG_BASE}${currentFlag.code}.png`;
-    flagImg.alt = `bendera ${currentFlag.name}`;
-    hintDisplay.innerText = '👑 TEKAN HINT UNTUK PETUNJUK';
-    messageArea.innerHTML = '';
-    
-    resetForNewQuestion();
-    prepareOptions();
-  }
-
-  function removeCurrentFromRemaining() {
-    if (!currentFlag) return;
-    remainingItems = remainingItems.filter(item => item.code !== currentFlag.code);
-  }
-
-  function showHint() {
-    if (!currentFlag) {
-      hintDisplay.innerText = '🏁 GAME SELESAI';
-      return;
-    }
-    const name = currentFlag.name;
-    if (name.length <= 3) {
-      hintDisplay.innerText = `🔎 HINT: ${name}`;
-    } else {
-      hintDisplay.innerText = `🔎 HINT: ${name.substring(0, 3)}...${name.substring(name.length - 2)}`;
-    }
-  }
-
-  // Proses jawaban
-  function handleAnswer(selectedIndex) {
-    if (answered || !currentFlag) return;
-    
-    const selectedAnswer = options[selectedIndex];
-    const isCorrect = (selectedAnswer === currentFlag.name);
-    
-    optionBtns.forEach(btn => { btn.disabled = true; });
-    
-    if (isCorrect) {
-      optionBtns[selectedIndex].classList.add('selected-correct');
-      messageArea.innerHTML = '<span class="success-msg">✓ BENAR! BENDERA DIHAPUS</span>';
-      
-      removeCurrentFromRemaining();
-      
-      if (remainingItems.length === 0) {
-        currentFlag = null;
-        flagImg.src = '';
-        hintDisplay.innerText = '🏁 GAME COMPLETE 🏁';
-        messageArea.innerHTML = '<span class="success-msg">🎉 SELAMAT! ANDA MENANG 🎉</span>';
-        nextBtn.classList.add('hidden');
-        return;
-      }
-    } else {
-      optionBtns[selectedIndex].classList.add('selected-wrong');
-      
-      const correctIndex = options.indexOf(currentFlag.name);
-      if (correctIndex !== -1) {
-        optionBtns[correctIndex].classList.add('selected-correct');
-      }
-      
-      messageArea.innerHTML = '<span class="error-msg">✗ SALAH! KLIK "BERIKUTNYA"</span>';
-    }
-    
-    answered = true;
-    nextBtn.classList.remove('hidden');
-  }
-
-  // Event Listeners
-  optionBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => handleAnswer(index));
-  });
-
-  hintBtn.addEventListener('click', showHint);
-
-  nextBtn.addEventListener('click', () => {
-    if (remainingItems.length > 0) {
-      pickNewFlag();
-    } else {
-      nextBtn.classList.add('hidden');
-    }
-  });
-
-  // Mulai game
-  initGame();
-})();
-</script>
+<div class="testimonial-grid">
+  <div class="testi-card">
+    <p>"Proses instant, langsung masuk ke akun anak saya. Recomended!"</p>
+    <div class="testi-user"><i class="fas fa-user-circle"></i> <span>— mamahdinda</span> <i class="fas fa-star" style="color:#d4af37; margin-left:auto;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i></div>
+  </div>
+  <div class="testi-card">
+    <p>"Desain webnya elegan, cocok buat top up Roblox. harga bersaing."</p>
+    <div class="testi-user"><i class="fas fa-user-astronaut"></i> <span>— kevin_roblox</span> <i class="fas fa-star" style="color:#d4af37; margin-left:auto;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i></div>
+  </div>
+  <div class="testi-card">
+    <p>"Suka sama warna emasnya, pelayanannya cepat dan aman."</p>
+    <div class="testi-user"><i class="fas fa-robot"></i> <span>— SkizoLovers</span> <i class="fas fa-star" style="color:#d4af37; margin-left:auto;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i><i class="fas fa-star" style="color:#d4af37;"></i></div>
+  </div>
+</div>
+    <!-- Footer glossy hitam + emas -->
+    <footer class="footer">
+      <div class="footer-copy">
+        © 2025 <strong>SkizoTopUp</strong> · Roblox top up elegan
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-discord"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </footer>
+    <hr class="gold-hr">
+    <p style="text-align: center; color:#4e4e4e; margin-top: 1rem; font-size: 0.85rem;">hitam doff · glossy · emas — SkizoTopUp #1 Roblox</p>
+  </div>
 </body>
 </html>
