@@ -1,1 +1,2512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>SkizoTopUp • Roblox Royal Edition</title>
+  <!-- Font Awesome 6 Pro -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    /* ========== ROYAL VARIABLES ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    :root {
+      /* Hitam Royal */
+      --obsidian: #050505;
+      --jet-black: #0A0A0A;
+      --onyx: #121212;
+      --charcoal: #1A1A1A;
+      --graphite: #222222;
+      --slate: #2A2A2A;
+      
+      /* Emas Royal */
+      --champagne: #F7E7CE;
+      --champagne-dark: #E5D0B0;
+      --gold-leaf: #D4AF37;
+      --antique-gold: #C5A028;
+      --old-gold: #B8860B;
+      --royal-gold: #F5D742;
+      --gold-glossy: linear-gradient(135deg, #F7E7CE 0%, #D4AF37 50%, #B8860B 100%);
+      
+      /* Abu-abu Premium */
+      --platinum: #E5E4E2;
+      --silver: #C0C0C0;
+      --pewter: #8A8D8F;
+      --steel: #71797E;
+      
+      /* Text Colors */
+      --text-primary: #FFFFFF;
+      --text-secondary: #F5F5F5;
+      --text-tertiary: #E0E0E0;
+      --text-muted: #A0A0A0;
+      --text-gold: #D4AF37;
+      
+      /* Gradients */
+      --gradient-royal: linear-gradient(135deg, #D4AF37 0%, #F7E7CE 50%, #B8860B 100%);
+      --gradient-obsidian: linear-gradient(145deg, #1A1A1A 0%, #050505 100%);
+      --gradient-onyx: linear-gradient(145deg, #222222 0%, #121212 100%);
+      
+      /* Shadows */
+      --shadow-xs: 0 2px 5px rgba(0,0,0,0.3);
+      --shadow-sm: 0 5px 15px rgba(0,0,0,0.4);
+      --shadow-md: 0 10px 25px rgba(0,0,0,0.5);
+      --shadow-lg: 0 15px 35px rgba(0,0,0,0.6);
+      --shadow-xl: 0 25px 50px rgba(0,0,0,0.7);
+      --shadow-gold: 0 10px 25px rgba(212,175,55,0.15);
+      --shadow-gold-lg: 0 20px 40px rgba(212,175,55,0.2);
+      
+      /* Borders */
+      --border-gold-thin: 1px solid rgba(212,175,55,0.15);
+      --border-gold: 1px solid rgba(212,175,55,0.3);
+      --border-gold-bold: 1px solid rgba(212,175,55,0.5);
+      
+      /* Radius */
+      --radius-xs: 8px;
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-xxl: 40px;
+      --radius-full: 999px;
+    }
+
+    body {
+      background: var(--obsidian);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Royal Background Pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 15% 25%, rgba(212,175,55,0.02) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(212,175,55,0.02) 0%, transparent 40%),
+        repeating-linear-gradient(45deg, rgba(212,175,55,0.005) 0px, rgba(212,175,55,0.005) 2px, transparent 2px, transparent 20px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .site-wrapper {
+      max-width: 1440px;
+      width: 100%;
+      background: transparent;
+    }
+    
+/* ========== ROYAL ANIMATIONS ========== */
+@keyframes royalFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 10px 15px rgba(212,175,55,0.1)); }
+  25% { transform: translateY(-10px) rotate(1deg); filter: drop-shadow(0 20px 25px rgba(212,175,55,0.3)); }
+  75% { transform: translateY(10px) rotate(-1deg); filter: drop-shadow(0 20px 25px rgba(212,175,55,0.3)); }
+}
+
+@keyframes royalGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(212,175,55,0.2), 0 0 20px rgba(212,175,55,0.1); }
+  50% { box-shadow: 0 0 25px rgba(212,175,55,0.5), 0 0 40px rgba(212,175,55,0.3); }
+}
+
+@keyframes royalShimmer {
+  0% { background-position: -500% 0; }
+  100% { background-position: 500% 0; }
+}
+
+@keyframes royalSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes royalSpinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes royalScaleIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes royalSlideInLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes royalSlideInRight {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes royalSlideInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes royalSlideInDown {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes royalRotateIn {
+  0% { opacity: 0; transform: rotate(-180deg) scale(0.8); }
+  100% { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+@keyframes royalBounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+@keyframes royalFlipIn {
+  0% { opacity: 0; transform: perspective(1000px) rotateY(90deg); }
+  100% { opacity: 1; transform: perspective(1000px) rotateY(0); }
+}
+
+@keyframes royalTiltIn {
+  0% { opacity: 0; transform: rotateX(-30deg); }
+  100% { opacity: 1; transform: rotateX(0); }
+}
+
+@keyframes royalZoomInOut {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes royalPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes royalBorderPulse {
+  0%, 100% { border-color: rgba(212,175,55,0.2); }
+  50% { border-color: rgba(212,175,55,0.8); }
+}
+
+@keyframes royalGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes royalRipple {
+  0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.4); }
+  70% { box-shadow: 0 0 0 20px rgba(212,175,55,0); }
+  100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+}
+
+@keyframes royalWave {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  75% { transform: translateY(5px); }
+}
+
+/* Animation Classes */
+.animate-royal-float { animation: royalFloat 6s ease-in-out infinite; }
+.animate-royal-glow { animation: royalGlow 3s ease-in-out infinite; }
+.animate-royal-spin { animation: royalSpinSlow 12s linear infinite; }
+.animate-royal-zoom { animation: royalZoomInOut 3s ease-in-out infinite; }
+.animate-royal-pulse { animation: royalPulse 2s ease-in-out infinite; }
+.animate-royal-border { animation: royalBorderPulse 2s ease-in-out infinite; }
+.animate-royal-wave { animation: royalWave 3s ease-in-out infinite; }
+.animate-royal-ripple { animation: royalRipple 2s ease-out infinite; }
+    /* ========== NAVBAR ROYAL ========== */
+.navbar {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: var(--border-gold);
+  border-radius: var(--radius-xxl);
+  padding: 0.8rem 2.2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(212,175,55,0.1) inset;
+  animation: royalSlideInDown 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.1), transparent);
+  animation: royalShimmer 4s infinite;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(212,175,55,0.2), transparent);
+  border-radius: var(--radius-xxl);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.navbar:hover::after {
+  opacity: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-icon {
+  width: 55px;
+  height: 55px;
+  background: var(--gradient-royal);
+  border-radius: 18px 6px 18px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: var(--obsidian);
+  box-shadow: 0 12px 0 #4a3a1a, 0 15px 30px rgba(0,0,0,0.6);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: royalFloat 5s ease-in-out infinite;
+}
+
+.logo-icon:hover {
+  transform: rotate(10deg) scale(1.1);
+  box-shadow: 0 15px 0 #4a3a1a, 0 20px 40px rgba(212,175,55,0.4);
+}
+
+.logo-text {
+  position: relative;
+}
+
+.logo-text h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFFFFF, var(--gold-leaf), #F7E7CE);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: royalGradientShift 4s ease infinite;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.logo-text h1::before,
+.logo-text h1::after {
+  content: '✦';
+  position: absolute;
+  top: 5px;
+  font-size: 1.2rem;
+  color: var(--gold-leaf);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.logo-text h1::before {
+  left: -25px;
+  transform: translateX(-10px);
+}
+
+.logo-text h1::after {
+  right: -25px;
+  transform: translateX(10px);
+}
+
+.logo:hover h1::before,
+.logo:hover h1::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.logo-text span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 2px;
+  font-weight: 300;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.6rem 0;
+  transition: all 0.4s;
+  position: relative;
+}
+
+.nav-links a i {
+  color: var(--gold-leaf);
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s;
+}
+
+.nav-links a:hover {
+  color: var(--gold-leaf);
+  transform: translateY(-2px);
+}
+
+.nav-links a:hover i {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-royal);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+.nav-links a:hover::before,
+.nav-links a.active::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-links a.active {
+  color: var(--gold-leaf);
+}
+
+.nav-links a.active i {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.user-panel {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: var(--border-gold);
+  border-radius: var(--radius-full);
+  padding: 0.4rem 0.4rem 0.4rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s;
+  animation: royalGlow 4s ease-in-out infinite;
+}
+
+.user-panel:hover {
+  background: rgba(40, 40, 40, 0.8);
+  border-color: var(--gold-leaf);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-gold-lg);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-badge {
+  background: var(--gradient-royal);
+  color: var(--obsidian);
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+}
+
+.user-coins {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gold-leaf);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  background: var(--gradient-royal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--obsidian);
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-avatar::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.5), transparent);
+  border-radius: 50%;
+  animation: royalSpin 4s linear infinite;
+}
+    /* ========== HERO ROYAL ========== */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  background: var(--gradient-onyx);
+  border: var(--border-gold);
+  border-radius: var(--radius-xxl);
+  padding: 3rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(212,175,55,0.1) inset;
+  animation: royalScaleIn 1s;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%);
+  animation: royalSpinSlow 20s linear infinite;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(212,175,55,0.1);
+  border: var(--border-gold-thin);
+  border-radius: var(--radius-full);
+  padding: 0.6rem 1.8rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(5px);
+  animation: royalPulse 2s infinite;
+}
+
+.hero-badge i {
+  color: var(--gold-leaf);
+  font-size: 1rem;
+  animation: royalGlow 2s infinite;
+}
+
+.hero-badge span {
+  color: var(--gold-leaf);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-title .gold {
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+.hero-title .gold::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(212,175,55,0.2);
+  border-radius: var(--radius-full);
+  z-index: -1;
+}
+
+.hero-desc {
+  color: var(--text-tertiary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero-stat::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: rgba(212,175,55,0.05);
+  border-radius: var(--radius-md);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hero-stat:hover::before {
+  opacity: 1;
+}
+
+.hero-stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 1.2rem 2.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--gradient-royal);
+  color: var(--obsidian);
+  box-shadow: 0 12px 0 #4a3a1a, var(--shadow-gold-lg);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 17px 0 #4a3a1a, var(--shadow-gold-lg);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary i {
+  transition: transform 0.3s;
+}
+
+.btn-primary:hover i {
+  transform: translateX(5px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--gold-leaf);
+  color: var(--gold-leaf);
+  backdrop-filter: blur(5px);
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(212,175,55,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+  z-index: -1;
+}
+
+.btn-secondary:hover {
+  color: var(--obsidian);
+  border-color: var(--old-gold);
+}
+
+.btn-secondary:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.hero-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: royalFloat 8s ease-in-out infinite;
+}
+
+.hero-image i {
+  font-size: 16rem;
+  color: var(--gold-leaf);
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
+  animation: royalGlow 3s infinite;
+}
+
+.floating-card {
+  position: absolute;
+  bottom: 30px;
+  left: -20px;
+  background: rgba(20,20,20,0.9);
+  backdrop-filter: blur(15px);
+  border: var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: royalFloat 5s ease-in-out infinite reverse;
+  box-shadow: var(--shadow-lg);
+}
+
+.floating-card i {
+  font-size: 2rem;
+  margin: 0;
+  filter: none;
+  animation: royalSpinSlow 10s linear infinite;
+}
+
+.floating-card div {
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-card small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.floating-card strong {
+  color: var(--gold-leaf);
+  font-size: 1.2rem;
+    }
+    /* ========== SEARCH ROYAL ========== */
+.search-section {
+  background: var(--gradient-onyx);
+  border: var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: royalSlideInRight 1s;
+}
+
+.search-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212,175,55,0.03) 0%, transparent 70%);
+  animation: royalSpinSlow 15s linear infinite;
+}
+
+.search-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.search-title i {
+  color: var(--gold-leaf);
+  font-size: 1.8rem;
+  animation: royalGlow 2s infinite;
+}
+
+.search-title span {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.search-box {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  background: rgba(0,0,0,0.4);
+  border: var(--border-gold);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s;
+}
+
+.search-box:focus-within {
+  border-color: var(--gold-leaf);
+  box-shadow: var(--shadow-gold);
+  transform: scale(1.02);
+}
+
+.search-box i {
+  padding: 0 1.2rem;
+  display: flex;
+  align-items: center;
+  color: var(--gold-leaf);
+}
+
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 1.2rem 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.search-box button {
+  background: var(--gradient-royal);
+  border: none;
+  color: var(--obsidian);
+  font-weight: 700;
+  padding: 0 2.5rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.search-box button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.search-box button:hover {
+  background: var(--old-gold);
+}
+
+.search-box button:hover::before {
+  left: 100%;
+}
+    /* ========== STATISTICS ROYAL ========== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: var(--gradient-onyx);
+  border: var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-lg);
+  animation: royalBounceIn 0.8s;
+  animation-fill-mode: both;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.1), transparent);
+  transition: left 0.6s;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--gold-leaf);
+  box-shadow: var(--shadow-gold-lg);
+}
+
+.stat-card:hover::before {
+  left: 100%;
+}
+
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(212,175,55,0.1);
+  border: var(--border-gold);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--gold-leaf);
+  transition: all 0.6s;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover .stat-icon {
+  transform: rotateY(180deg);
+  background: var(--gradient-royal);
+  color: var(--obsidian);
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFFFFF, #E0E0E0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-label i {
+  color: var(--gold-leaf);
+  font-size: 0.8rem;
+}
+
+.stat-trend {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(212,175,55,0.15);
+  color: var(--gold-leaf);
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+    /* ========== SECTION HEADER ROYAL ========== */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  position: relative;
+}
+
+.header-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-leaf), var(--old-gold), var(--gold-leaf), transparent);
+  position: relative;
+}
+
+.header-line::before,
+.header-line::after {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-leaf);
+  font-size: 1rem;
+  animation: royalPulse 2s infinite;
+}
+
+.header-line:first-child::before { left: 0; }
+.header-line:first-child::after { right: 0; }
+.header-line:last-child::before { left: 0; }
+.header-line:last-child::after { right: 0; }
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(212,175,55,0.1);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 2.5rem;
+  border-radius: var(--radius-full);
+  border: var(--border-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%);
+  animation: royalSpinSlow 15s linear infinite;
+}
+
+.section-title i {
+  color: var(--gold-leaf);
+  font-size: 1.5rem;
+  animation: royalGlow 2s infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title h2 {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+  font-family: 'Playfair Display', serif;
+}
+
+.section-title h2 span {
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+    /* ========== PRODUCT GRID ROYAL ========== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.product-card {
+  background: var(--gradient-onyx);
+  border: var(--border-gold);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-lg);
+  animation: royalFlipIn 0.8s;
+  animation-fill-mode: both;
+  transform-style: preserve-3d;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent, rgba(212,175,55,0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.8s;
+}
+
+.product-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  border-color: var(--gold-leaf);
+  box-shadow: var(--shadow-gold-lg);
+}
+
+.product-card:hover::before {
+  transform: translateX(100%);
+}
+
+.product-badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 10;
+}
+
+.badge {
+  background: var(--gradient-royal);
+  color: var(--obsidian);
+  padding: 0.4rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 0 #4a3a1a;
+  animation: royalGlow 2s infinite;
+  display: inline-block;
+}
+
+.product-image {
+  background: linear-gradient(145deg, #1E1E1E, #121212);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212,175,55,0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.product-card:hover .product-image::before {
+  opacity: 1;
+}
+
+.product-image i {
+  font-size: 5rem;
+  color: var(--gold-leaf);
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.8));
+  transition: all 0.6s;
+  animation: royalFloat 4s ease-in-out infinite;
+}
+
+.product-card:hover .product-image i {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--royal-gold);
+  filter: drop-shadow(0 0 20px rgba(212,175,55,0.5));
+}
+
+.product-details {
+  padding: 2rem 1.5rem;
+  background: linear-gradient(145deg, #0F0F0F, #0A0A0A);
+}
+
+.product-amount {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.product-amount small {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.product-bonus {
+  color: var(--text-tertiary);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed rgba(212,175,55,0.2);
+}
+
+.product-bonus i {
+  color: var(--gold-leaf);
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.price-currency {
+  color: var(--gold-leaf);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.price-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.price-unit {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-left: 2px;
+}
+
+.btn-buy {
+  width: 55px;
+  height: 55px;
+  background: rgba(212,175,55,0.1);
+  border: var(--border-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-leaf);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-buy::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--gradient-royal);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+  z-index: -1;
+}
+
+.btn-buy:hover {
+  color: var(--obsidian);
+  transform: rotate(360deg);
+}
+
+.btn-buy:hover::before {
+  width: 100%;
+  height: 100%;
+}
+    /* ========== PAYMENT METHODS ROYAL ========== */
+.payment-section {
+  background: var(--gradient-onyx);
+  border: var(--border-gold);
+  border-radius: var(--radius-xxl);
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: royalTiltIn 1s;
+}
+
+.payment-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%);
+  animation: royalSpinSlow 15s linear infinite;
+}
+
+.payment-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.payment-header i {
+  color: var(--gold-leaf);
+  font-size: 2rem;
+  animation: royalGlow 2s infinite;
+}
+
+.payment-header h3 {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.2rem;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+}
+
+.payment-item {
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(5px);
+  border: var(--border-gold-thin);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.4s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.payment-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(212,175,55,0.1);
+  border-color: var(--gold-leaf);
+  box-shadow: var(--shadow-gold);
+}
+
+.payment-item:hover::before {
+  left: 100%;
+}
+
+.payment-item i {
+  font-size: 2.5rem;
+  color: var(--gold-leaf);
+  transition: all 0.4s;
+}
+
+.payment-item:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.payment-item span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.security-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding-top: 2rem;
+  border-top: 2px dashed rgba(212,175,55,0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.security-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-tertiary);
+  font-size: 1rem;
+}
+
+.security-item i {
+  color: var(--gold-leaf);
+  font-size: 1.2rem;
+  animation: royalPulse 2s infinite;
+}
+    /* ========== TESTIMONIALS ROYAL ========== */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.testimonial-card {
+  background: rgba(20,20,20,0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s;
+  box-shadow: var(--shadow-md);
+  animation: royalSlideInUp 0.8s;
+  animation-fill-mode: both;
+}
+
+.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  font-size: 12rem;
+  color: rgba(212,175,55,0.1);
+  font-family: serif;
+  line-height: 1;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--gold-leaf);
+  box-shadow: var(--shadow-gold-lg);
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-rating i {
+  color: var(--gold-leaf);
+  font-size: 1rem;
+  animation: royalPulse 2s infinite;
+}
+
+.testimonial-text {
+  color: var(--text-tertiary);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 2px solid rgba(212,175,55,0.1);
+  padding-top: 1.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.author-avatar {
+  width: 55px;
+  height: 55px;
+  background: var(--gradient-royal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--obsidian);
+  font-weight: 700;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.author-avatar::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.5), transparent);
+  border-radius: 50%;
+  animation: royalSpin 4s linear infinite;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.author-title {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.author-title i {
+  color: var(--gold-leaf);
+}
+    /* ========== CTA SECTION ROYAL ========== */
+.cta-section {
+  background: linear-gradient(145deg, #1A1A1A, #0A0A0A);
+  border: var(--border-gold);
+  border-radius: var(--radius-xxl);
+  padding: 2.5rem 3rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  animation: royalZoomInOut 1s;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%);
+  border-radius: 50%;
+  animation: royalSpinSlow 20s linear infinite;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content h3 {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.cta-content h3 span {
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cta-content p {
+  color: var(--text-tertiary);
+  font-size: 1.1rem;
+}
+
+.cta-button {
+  background: var(--gradient-royal);
+  border: none;
+  color: var(--obsidian);
+  font-weight: 700;
+  padding: 1.5rem 3rem;
+  border-radius: var(--radius-full);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 0 #4a3a1a, var(--shadow-gold-lg);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 17px 0 #4a3a1a, var(--shadow-gold-lg);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button i {
+  transition: transform 0.3s;
+}
+
+.cta-button:hover i {
+  transform: translateX(5px);
+}
+
+.cta-stats {
+  display: flex;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-stat {
+  text-align: center;
+}
+
+.cta-stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--gold-leaf);
+  line-height: 1;
+}
+
+.cta-stat-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+    /* ========== FOOTER ROYAL ========== */
+.footer {
+  background: rgba(8,8,8,0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 2px solid rgba(212,175,55,0.2);
+  border-radius: var(--radius-xxl) var(--radius-xxl) 0 0;
+  padding: 3rem;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-leaf), var(--old-gold), var(--gold-leaf), transparent);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo i {
+  font-size: 2.5rem;
+  color: var(--gold-leaf);
+  animation: royalFloat 4s infinite;
+}
+
+.footer-logo span {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-desc {
+  color: var(--text-tertiary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-social a {
+  width: 45px;
+  height: 45px;
+  background: rgba(212,175,55,0.1);
+  border: var(--border-gold-thin);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-leaf);
+  font-size: 1.3rem;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-social a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--gradient-royal);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+  z-index: -1;
+}
+
+.footer-social a:hover {
+  color: var(--obsidian);
+  transform: translateY(-5px) rotate(360deg);
+}
+
+.footer-social a:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-title {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  font-family: 'Playfair Display', serif;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--gradient-royal);
+  border-radius: var(--radius-full);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.footer-links a i {
+  color: var(--gold-leaf);
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-leaf);
+  transform: translateX(5px);
+}
+
+.footer-links a:hover i {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.newsletter-box {
+  display: flex;
+  background: rgba(0,0,0,0.4);
+  border: var(--border-gold);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.newsletter-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 1rem 1.2rem;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.newsletter-box input::placeholder {
+  color: var(--text-muted);
+}
+
+.newsletter-box button {
+  background: var(--gradient-royal);
+  border: none;
+  color: var(--obsidian);
+  padding: 0 1.8rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  font-size: 1.2rem;
+}
+
+.newsletter-box button:hover {
+  background: var(--old-gold);
+}
+
+.footer-bottom {
+  border-top: 2px solid rgba(212,175,55,0.1);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-bottom-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--gold-leaf);
+}
+
+.footer-decoration {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.footer-decoration i {
+  color: var(--gold-leaf);
+  font-size: 0.6rem;
+  animation: royalPulse 2s infinite;
+}
+
+.footer-decoration i:nth-child(2) { animation-delay: 0.2s; }
+.footer-decoration i:nth-child(3) { animation-delay: 0.4s; }
+.footer-decoration i:nth-child(4) { animation-delay: 0.6s; }
+.footer-decoration i:nth-child(5) { animation-delay: 0.8s; }
+        /* ========== RESPONSIVE ROYAL ========== */
+    @media (max-width: 1200px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+      .payment-grid { grid-template-columns: repeat(4, 1fr); }
+      .hero-title { font-size: 3.5rem; }
+    }
+
+    @media (max-width: 992px) {
+      .navbar { flex-direction: column; gap: 1.5rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .hero { grid-template-columns: 1fr; text-align: center; padding: 2rem; }
+      .hero-desc { max-width: 100%; }
+      .hero-stats { justify-content: center; }
+      .hero-cta { justify-content: center; }
+      .hero-image { display: none; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .payment-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .payment-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .search-section { flex-direction: column; align-items: stretch; }
+      .search-box { max-width: 100%; }
+      .cta-section { flex-direction: column; gap: 2rem; text-align: center; }
+      .cta-stats { justify-content: center; }
+      .hero-title { font-size: 2.8rem; }
+      .section-title h2 { font-size: 1.5rem; }
+    }
+
+    @media (max-width: 576px) {
+      .payment-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .security-row { flex-direction: column; gap: 1rem; }
+      .hero-stats { flex-direction: column; gap: 1rem; }
+      .hero-cta { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Navbar Royal -->
+    <nav class="navbar">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-crown"></i>
+        </div>
+        <div class="logo-text">
+          <h1>SkizoTopUp</h1>
+          <span>ROYAL EDITION</span>
+        </div>
+      </div>
+      
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="#" class="active"><i class="fas fa-home"></i> Beranda</a>
+        </div>
+        <div class="nav-item">
+          <a href="#"><i class="fas fa-coins"></i> Robux</a>
+        </div>
+        <div class="nav-item">
+          <a href="#"><i class="fas fa-crown"></i> Membership</a>
+        </div>
+        <div class="nav-item">
+          <a href="#"><i class="fas fa-tags"></i> Promo</a>
+        </div>
+        <div class="nav-item">
+          <a href="#"><i class="fas fa-gift"></i> Bonus</a>
+        </div>
+      </div>
+      
+      <div class="user-panel">
+        <div class="user-info">
+          <div class="user-name">
+            Ryno_X
+            <span class="user-badge">VIP</span>
+          </div>
+          <div class="user-coins">
+            <i class="fas fa-coins"></i> 1.450
+          </div>
+        </div>
+        <div class="user-avatar">
+          R
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Royal -->
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-bolt"></i>
+          <span>TOP UP INSTANT</span>
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h1 class="hero-title">
+          Top Up Roblox <br>
+          <span class="gold">Cepat & Aman</span>
+        </h1>
+        <p class="hero-desc">
+          Nikmati pengalaman top up termewah dengan proses instan, 
+          harga terbaik, dan bonus eksklusif untuk setiap pembelian.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">14.8K+</span>
+            <span class="hero-stat-label">Pelanggan</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">2.4K</span>
+            <span class="hero-stat-label">Online</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">5m</span>
+            <span class="hero-stat-label">Proses</span>
+          </div>
+        </div>
+        <div class="hero-cta">
+          <button class="btn-primary"><i class="fas fa-rocket"></i> Top Up</button>
+          <button class="btn-secondary"><i class="fas fa-play"></i> Demo</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-crown animate-royal-float"></i>
+        <div class="floating-card">
+          <i class="fas fa-gem animate-royal-spin"></i>
+          <div>
+            <small>Bonus Spesial</small>
+            <strong>+15% Robux</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Royal -->
+    <div class="search-section">
+      <div class="search-title">
+        <i class="fas fa-search"></i>
+        <span>Cek Username</span>
+      </div>
+      <div class="search-box">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Masukkan username Roblox kamu...">
+        <button><i class="fas fa-arrow-right"></i> Cek</button>
+      </div>
+    </div>
+
+    <!-- Statistics Royal -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-info">
+          <div class="stat-number">14.8K</div>
+          <div class="stat-label"><i class="fas fa-check-circle"></i> Pelanggan</div>
+        </div>
+        <div class="stat-trend"><i class="fas fa-arrow-up"></i> +23%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+        <div class="stat-info">
+          <div class="stat-number">2.4K</div>
+          <div class="stat-label"><i class="fas fa-globe"></i> Online</div>
+        </div>
+        <div class="stat-trend"><i class="fas fa-arrow-up"></i> +12%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+        <div class="stat-info">
+          <div class="stat-number">5m</div>
+          <div class="stat-label"><i class="fas fa-flash"></i> Proses</div>
+        </div>
+        <div class="stat-trend"><i class="fas fa-check"></i> Real-time</div>
+      </div>
+    </div>
+
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="header-line"></div>
+      <div class="section-title">
+        <i class="fas fa-gem"></i>
+        <h2>Pilihan <span>Robux</span></h2>
+        <i class="fas fa-gem"></i>
+      </div>
+      <div class="header-line"></div>
+    </div>
+
+    <!-- Product Grid Royal -->
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-badge"><span class="badge">BEST SELLER</span></div>
+        <div class="product-image"><i class="fab fa-roblox"></i></div>
+        <div class="product-details">
+          <div class="product-amount">1,200 <small>Robux</small></div>
+          <div class="product-bonus"><i class="fas fa-gift"></i> +50 Bonus</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">185</span>
+              <span class="price-unit">k</span>
+            </div>
+            <button class="btn-buy"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image"><i class="fab fa-roblox"></i></div>
+        <div class="product-details">
+          <div class="product-amount">2,500 <small>Robux</small></div>
+          <div class="product-bonus"><i class="fas fa-star"></i> +Item Premium</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">359</span>
+              <span class="price-unit">k</span>
+            </div>
+            <button class="btn-buy"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-badge"><span class="badge">HEMAT</span></div>
+        <div class="product-image"><i class="fas fa-gem"></i></div>
+        <div class="product-details">
+          <div class="product-amount">4,500 <small>Robux</small></div>
+          <div class="product-bonus"><i class="fas fa-gift"></i> +75 Gratis</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">640</span>
+              <span class="price-unit">k</span>
+            </div>
+            <button class="btn-buy"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-badge"><span class="badge">VIP</span></div>
+        <div class="product-image"><i class="fas fa-crown"></i></div>
+        <div class="product-details">
+          <div class="product-amount">10,000 <small>Robux</small></div>
+          <div class="product-bonus"><i class="fas fa-crown"></i> +500 Bonus</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">1.25</span>
+              <span class="price-unit">jt</span>
+            </div>
+            <button class="btn-buy"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Methods Royal -->
+    <div class="payment-section">
+      <div class="payment-header">
+        <i class="fas fa-shield-alt animate-royal-glow"></i>
+        <h3>Metode Pembayaran</h3>
+        <i class="fas fa-shield-alt animate-royal-glow"></i>
+      </div>
+      <div class="payment-grid">
+        <div class="payment-item"><i class="fab fa-cc-visa"></i><span>Visa</span></div>
+        <div class="payment-item"><i class="fab fa-cc-mastercard"></i><span>Master</span></div>
+        <div class="payment-item"><i class="fab fa-cc-paypal"></i><span>PayPal</span></div>
+        <div class="payment-item"><i class="fas fa-wallet"></i><span>OVO</span></div>
+        <div class="payment-item"><i class="fas fa-mobile-alt"></i><span>GoPay</span></div>
+        <div class="payment-item"><i class="fas fa-qrcode"></i><span>QRIS</span></div>
+      </div>
+      <div class="security-row">
+        <div class="security-item"><i class="fas fa-lock"></i> 256-bit Encrypted</div>
+        <div class="security-item"><i class="fas fa-shield-check"></i> 100% Aman</div>
+        <div class="security-item"><i class="fas fa-clock"></i> 24/7 Support</div>
+      </div>
+    </div>
+
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="header-line"></div>
+      <div class="section-title">
+        <i class="fas fa-star"></i>
+        <h2>Ulasan <span>Pelanggan</span></h2>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="header-line"></div>
+    </div>
+
+    <!-- Testimonials Royal -->
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Proses super cepat, kurang dari 5 menit langsung masuk. Customer service ramah dan responsif."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div class="author-info">
+            <div class="author-name">Ahmad Fauzi</div>
+            <div class="author-title"><i class="fas fa-check-circle"></i> Member</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Desain website elegan, warna emasnya keren. Harga bersaing dan banyak bonus. Langganan terus!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div class="author-info">
+            <div class="author-name">Sarah Wijaya</div>
+            <div class="author-title"><i class="fas fa-crown"></i> VIP Member</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+        <p class="testimonial-text">"Pelayanan terbaik yang pernah saya coba. Proses aman dan cepat. Recomended banget!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div class="author-info">
+            <div class="author-name">Rendi Kurniawan</div>
+            <div class="author-title"><i class="fas fa-star"></i> Top Player</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Royal -->
+    <div class="cta-section">
+      <div class="cta-content">
+        <h3>Siap <span>Top Up?</span></h3>
+        <p>Dapatkan bonus 15% untuk pembelian pertama kamu!</p>
+      </div>
+      <button class="cta-button">
+        <i class="fas fa-rocket"></i>
+        Top Up Sekarang
+        <i class="fas fa-arrow-right"></i>
+      </button>
+      <div class="cta-stats">
+        <div class="cta-stat">
+          <div class="cta-stat-number">50K+</div>
+          <div class="cta-stat-label">Transaksi</div>
+        </div>
+        <div class="cta-stat">
+          <div class="cta-stat-number">⭐4.9</div>
+          <div class="cta-stat-label">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Royal -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fas fa-crown"></i>
+            <span>SkizoTopUp</span>
+          </div>
+          <p class="footer-desc">
+            Platform top up Roblox terpercaya dengan pelayanan cepat, aman, 
+            dan harga terbaik. Sudah melayani ribuan pelanggan sejak 2023.
+          </p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-title">Produk</h4>
+          <a href="#"><i class="fas fa-chevron-right"></i> Robux</a>
+          <a href="#"><i class="fas fa-chevron-right"></i> Membership</a>
+          <a href="#"><i class="fas fa-chevron-right"></i> Game Pass</a>
+          <a href="#"><i class="fas fa-chevron-right"></i> Item Limited</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-title">Informasi</h4>
+          <a href="#"><i class="fas fa-chevron-right"></i> Tentang Kami</a>
+          <a href="#"><i class="fas fa-chevron-right"></i> Syarat & Ketentuan</a>
+          <a href="#"><i class="fas fa-chevron-right"></i> Kebijakan Privasi</a>
+          <a href="#"><i class="fas fa-chevron-right"></i> FAQ</a>
+        </div>
+        <div>
+          <h4 class="footer-title">Newsletter</h4>
+          <p class="footer-desc">Dapatkan info promo terbaru dan bonus eksklusif!</p>
+          <div class="newsletter-box">
+            <input type="email" placeholder="Email kamu">
+            <button><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 SkizoTopUp. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+      <div class="footer-decoration">
+        <i class="fas fa-circle"></i>
+        <i class="fas fa-circle"></i>
+        <i class="fas fa-circle"></i>
+        <i class="fas fa-circle"></i>
+        <i class="fas fa-circle"></i>
+      </div>
+    </footer>
+  </div>
+    <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'cubic-bezier(0.23, 1, 0.32, 1)'
+    });
+
+    // Interactive Buttons
+    document.querySelectorAll('.btn-buy, .btn-primary, .btn-secondary, .cta-button, .search-box button').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const icon = this.querySelector('i');
+        if (icon) {
+          const originalClass = icon.className;
+          icon.className = 'fas fa-spinner fa-spin';
+          
+          setTimeout(() => {
+            icon.className = 'fas fa-check';
+            this.style.background = 'var(--gradient-royal)';
+            
+            setTimeout(() => {
+              icon.className = originalClass;
+              this.style.background = '';
+            }, 1500);
+          }, 1500);
+        }
+      });
+    });
+
+    // Search Input Validation
+    const searchInput = document.querySelector('.search-box input');
+    const searchBtn = document.querySelector('.search-box button');
+    
+    if (searchBtn && searchInput) {
+      searchBtn.addEventListener('click', function() {
+        if (searchInput.value.trim() === '') {
+          searchInput.style.border = '2px solid #ff4444';
+          searchInput.style.animation = 'royalPulse 1s';
+          
+          setTimeout(() => {
+            searchInput.style.border = '';
+            searchInput.style.animation = '';
+          }, 1000);
+        }
+      });
+    }
+
+    // 3D Hover Effect for Product Cards
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
+        
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      });
+
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+    });
+
+    // Newsletter Button Animation
+    const newsletterBtn = document.querySelector('.newsletter-box button');
+    const newsletterInput = document.querySelector('.newsletter-box input');
+    
+    if (newsletterBtn && newsletterInput) {
+      newsletterBtn.addEventListener('click', function() {
+        if (newsletterInput.value.trim() === '') {
+          alert('Masukkan email kamu!');
+        } else {
+          this.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+          
+          setTimeout(() => {
+            this.innerHTML = '<i class="fas fa-check"></i>';
+            newsletterInput.value = '';
+            
+            setTimeout(() => {
+              this.innerHTML = '<i class="fas fa-paper-plane"></i>';
+            }, 2000);
+          }, 1500);
+        }
+      });
+    }
+
+    // Smooth Scroll for Navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Parallax Effect on Hero
+    window.addEventListener('scroll', () => {
+      const heroImage = document.querySelector('.hero-image');
+      if (heroImage) {
+        const scrolled = window.pageYOffset;
+        heroImage.style.transform = `translateY(${scrolled * 0.1}px)`;
+      }
+    });
+
+    // Active Navigation Based on Scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.section-header');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
